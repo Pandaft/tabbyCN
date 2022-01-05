@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    flex: auto;
+    position: relative;
+    overflow: hidden;
+
+    >* {
+        flex: auto;
+    }
+
+    > perfect-scrollbar {
+        width: auto;
+        height: auto;
+    }
+}

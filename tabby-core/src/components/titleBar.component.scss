@@ -1,0 +1,26 @@
+$titlebar-height: 30px;
+
+:host {
+    flex: 0 0 $titlebar-height;
+    display: flex;
+
+    .title {
+        flex: auto;
+        padding-left: 15px;
+        line-height: $titlebar-height;
+        -webkit-app-region: drag;
+    }
+
+    &.inset {
+        flex-basis: 36px;
+
+        .title {
+            padding-left: 80px;
+            line-height: 36px;
+        }
+
+        window-controls {
+            display: none;
+        }
+    }
+ }

@@ -1,0 +1,16 @@
+ng-template(#content)
+    .preview(
+        [style.width]='"100%"',
+        [style.background]='model',
+    )
+    input.form-control(type='text', [(ngModel)]='model', (ngModelChange)='onChange()', #input)
+
+div(
+    [ngbPopover]='content',
+    [style.background]='model',
+    (click)='open()',
+    autoClose='outside',
+    container='body',
+    #popover='ngbPopover',
+    [title]='hint'
+) {{ title }}

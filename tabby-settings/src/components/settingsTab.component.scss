@@ -1,0 +1,67 @@
+:host {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+
+    >.btn-block {
+        margin: 20px;
+        width: auto;
+        flex: none;
+    }
+
+    .logo-area {
+        .tabby-logo {
+            margin: 0 0 0 -8px;
+            width: 60px;
+            height: 60px;
+        }
+
+        .tabby-title {
+            text-align: left;
+        }
+    }
+
+    .link-card {
+        display: flex;
+        line-height: 1;
+        align-items: center;
+    }
+
+    > .content {
+        display: flex;
+        min-height: 0;
+        flex: 1 0 0;
+
+        > .nav {
+            padding: 20px 10px;
+            width: 222px;
+            flex: none;
+            overflow-y: auto;
+            flex-wrap: nowrap;
+        }
+
+        > .tab-content {
+            flex: auto;
+            padding: 20px 30px;
+            overflow-y: auto;
+
+            > ::ng-deep .tab-pane {
+                height: 100%;
+
+                > settings-tab-body > * {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &.pad-window-controls > .content > .nav {
+        padding-top: 40px;
+    }
+}
+
+textarea {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 12px;
+    min-height: 120px;
+}

@@ -1,0 +1,123 @@
+title-bar(
+  *ngIf='ready && !hostWindow.isFullscreen && config.store.appearance.frame == "full" && config.store.appearance.dock == "off"',
+  (dblclick)='hostWindow.toggleMaximize()',
+  [class.inset]='hostApp.platform == Platform.macOS && !hostWindow.isFullscreen'
+)
+
+.content(
+    *ngIf='ready',
+    [class.tabs-on-top]='config.store.appearance.tabsLocation == "top" || config.store.appearance.tabsLocation == "left"',
+    [class.tabs-on-side]='hasVerticalTabs()',
+)
+    .tab-bar((dblclick)='hostWindow.toggleMaximize()')
+        .inset.background(*ngIf='hostApp.platform == Platform.macOS \
+        && !hostWindow.isFullscreen \
+        && config.store.appearance.frame == "thin" \
+        && (config.store.appearance.tabsLocation == "top" || config.store.appearance.tabsLocation == "left")')
+        .tabs(
+            cdkDropList,
+            [cdkDropListOrientation]='(config.store.appearance.tabsLocation == "top" || config.store.appearance.tabsLocation == "bottom") ? "horizontal" : "vertical"',
+            (cdkDropListDropped)='onTabsReordered($event)',
+            cdkAutoDropGroup='app-tabs'
+        )
+            tab-header(
+                *ngFor='let tab of app.tabs; let idx = index',
+                [index]='idx',
+                [tab]='tab',
+                [active]='tab == app.activeTab',
+                @animateTab,
+                [@.disabled]='hasVerticalTabs()',
+                (click)='app.selectTab(tab)',
+                [class.fully-draggable]='hostApp.platform != Platform.macOS',
+                [class.drag-region]='hostApp.platform == Platform.macOS && !(app.tabDragActive$|async)',
+            )
+
+        .btn-group.background
+            .d-flex(
+                *ngFor='let button of leftToolbarButtons',
+                ngbDropdown,
+                (openChange)='generateButtonSubmenu(button)',
+            )
+                button.btn.btn-secondary.btn-tab-bar(
+                    [title]='button.title',
+                    (click)='button.click && button.click()',
+                    [fastHtmlBind]='button.icon',
+                    ngbDropdownToggle,
+                )
+                div(*ngIf='button.submenu', ngbDropdownMenu)
+                    button.dropdown-item.d-flex.align-items-center(
+                        *ngFor='let item of button.submenuItems',
+                        (click)='item.click()',
+                        ngbDropdownItem,
+                    )
+                        .icon-wrapper(
+                            *ngIf='hasIcons(button.submenuItems)',
+                            [fastHtmlBind]='item.icon'
+                        )
+                        div([class.ml-3]='hasIcons(button.submenuItems)') {{item.title}}
+
+            .d-flex(
+                ngbDropdown,
+                container='body',
+                #activeTransfersDropdown='ngbDropdown'
+            )
+                button.btn.btn-secondary.btn-tab-bar(
+                    *ngIf='activeTransfers.length > 0',
+                    title='File transfers',
+                    ngbDropdownToggle
+                ) !{require('../icons/transfers.svg')}
+                transfers-menu(
+                    ngbDropdownMenu,
+                    [(transfers)]='activeTransfers',
+                    (transfersChange)='onTransfersChange()'
+                )
+
+        .drag-space.background([class.persistent]='config.store.appearance.frame == "thin" && hostApp.platform != Platform.macOS')
+
+        .btn-group.background
+            .d-flex(
+                *ngFor='let button of rightToolbarButtons',
+                ngbDropdown,
+                (openChange)='generateButtonSubmenu(button)',
+            )
+                button.btn.btn-secondary.btn-tab-bar(
+                    [title]='button.title',
+                    (click)='button.click && button.click()',
+                    [fastHtmlBind]='button.icon',
+                    ngbDropdownToggle,
+                )
+                div(*ngIf='button.submenu', ngbDropdownMenu)
+                    button.dropdown-item.d-flex.align-items-center(
+                        *ngFor='let item of button.submenuItems',
+                        (click)='item.click()',
+                        ngbDropdownItem,
+                    )
+                        .icon-wrapper(
+                            *ngIf='hasIcons(button.submenuItems)',
+                            [fastHtmlBind]='item.icon'
+                        )
+                        div([class.ml-3]='hasIcons(button.submenuItems)') {{item.title}}
+
+            button.btn.btn-secondary.btn-tab-bar.btn-update(
+                *ngIf='updatesAvailable',
+                title='Update available - Click to install',
+                (click)='updater.update()'
+            ) !{require('../icons/gift.svg')}
+
+        window-controls.background(
+            *ngIf='config.store.appearance.frame == "thin" \
+            && (hostApp.platform == Platform.Windows || hostApp.platform == Platform.Linux)',
+        )
+
+    .content
+        start-page.content-tab.content-tab-active(*ngIf='ready && app.tabs.length == 0')
+
+        tab-body.content-tab(
+            #tabBodies,
+            *ngFor='let tab of unsortedTabs',
+            [class.content-tab-active]='tab == app.activeTab',
+            [active]='tab == app.activeTab',
+            [tab]='tab',
+        )
+
+ng-template(ngbModalContainer)

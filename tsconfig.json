@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2016",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "removeComments": false,
+    "emitDeclarationOnly": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "lib": [
+      "DOM",
+      "ES5",
+      "ES6",
+      "ES7",
+      "ES2015",
+      "ES2017",
+      "ES2019",
+      "ES2021"
+    ],
+    "paths": {
+      "*": [
+        "../node_modules/*",
+        "../../app/node_modules/*"
+      ],
+      "common*": [
+        "../../tabby-terminal/node_modules/xterm/src/common*"
+      ],
+      "tabby-*": ["../../tabby-*/src"]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "../node_modules",
+      "../../app/node_modules"
+    ]
+  }
+}

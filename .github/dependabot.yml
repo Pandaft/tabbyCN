@@ -1,0 +1,74 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/app"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-core"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-settings"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-terminal"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-local"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-community-color-schemes"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-electron"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-web"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-plugin-manager"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: npm
+  directory: "/tabby-ssh"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 20

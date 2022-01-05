@@ -1,0 +1,129 @@
+h3.mb-3 Appearance
+.row
+    .col-12.col-md-6
+        .form-line
+            .header
+                .title Font
+
+            .input-group.w-75
+                input.form-control.w-75(
+                    type='text',
+                    [showHint]='true',
+                    [ngbTypeahead]='fontAutocomplete',
+                    [(ngModel)]='config.store.terminal.font',
+                    (ngModelChange)='config.save()',
+                )
+                input.form-control.w-25(
+                    type='number',
+                    max='48',
+                    [(ngModel)]='config.store.terminal.fontSize',
+                    (ngModelChange)='config.save()',
+                )
+
+        .form-line
+            .header
+                .title Enable font ligatures
+            toggle(
+                [(ngModel)]='config.store.terminal.ligatures',
+                (ngModelChange)='config.save()',
+            )
+
+    .col-12.col-md-6
+        color-scheme-preview([scheme]='config.store.terminal.colorScheme', [fontPreview]='true')
+
+.content-box
+    .form-line
+        .header
+            .title Terminal background
+
+        .btn-group(
+            [(ngModel)]='config.store.terminal.background',
+            (ngModelChange)='config.save()',
+            ngbRadioGroup
+        )
+            label.btn.btn-secondary(ngbButtonLabel)
+                input(
+                    type='radio',
+                    ngbButton,
+                    [value]='"theme"'
+                )
+                | From theme
+            label.btn.btn-secondary(ngbButtonLabel)
+                input(
+                    type='radio',
+                    ngbButton,
+                    [value]='"colorScheme"'
+                )
+                | From color scheme
+
+    .form-line
+        .header
+            .title Cursor shape
+
+        .btn-group(
+            [(ngModel)]='config.store.terminal.cursor',
+            (ngModelChange)='config.save()',
+            ngbRadioGroup
+        )
+            label.btn.btn-secondary(ngbButtonLabel)
+                input(
+                    type='radio',
+                    ngbButton,
+                    [value]='"block"'
+                )
+                | █
+            label.btn.btn-secondary(ngbButtonLabel)
+                input(
+                    type='radio',
+                    ngbButton,
+                    [value]='"beam"'
+                )
+                | |
+            label.btn.btn-secondary(ngbButtonLabel)
+                input(
+                    type='radio',
+                    ngbButton,
+                    [value]='"underline"'
+                )
+                | ▁
+
+    .form-line
+        .header
+            .title Blink cursor
+
+        toggle(
+            [(ngModel)]='config.store.terminal.cursorBlink',
+            (ngModelChange)='config.save()',
+        )
+
+    .form-line
+        .header
+            .title Fallback font
+            .description A second font family used to display characters missing in the main font
+
+        input.form-control(
+            type='text',
+            [ngbTypeahead]='fontAutocomplete',
+            [(ngModel)]='config.store.terminal.fallbackFont',
+            (ngModelChange)='config.save()'
+        )
+
+    .form-line
+        .header
+            .title Line padding
+            .description Additional space between lines
+        input.form-control(
+            type='number',
+            [(ngModel)]='config.store.terminal.linePadding',
+            (ngModelChange)='config.save()',
+        )
+
+
+    .form-line
+        .header
+            .title Custom CSS
+
+    textarea.form-control.mb-5(
+        [(ngModel)]='config.store.appearance.css',
+        (ngModelChange)='saveConfiguration()',
+    )

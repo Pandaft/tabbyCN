@@ -1,0 +1,44 @@
+div([sortablejs]='scripts')
+    .input-group.flex-grow-1(*ngFor='let script of scripts')
+        input.form-control(
+            type='text',
+            placeholder='Expect',
+            [(ngModel)]='script.expect'
+        )
+        input.form-control(
+            type='text',
+            placeholder='Send',
+            [(ngModel)]='script.send'
+        )
+        .input-group-append.input-group-text.p-0.border-0
+            .hover-reveal(ngbDropdown)
+                button.btn.btn-link.btn-sm(ngbDropdownToggle)
+                    i.fas.fa-fw.fa-cog
+                .dropdown-menu-right(ngbDropdownMenu)
+                    a.dropdown-item(
+                        href='#',
+                        (click)='script.isRegex = false',
+                        [class.active]='!script.isRegex',
+                    )
+                        i.fas.fa-fw([class.fa-check]='!script.isRegex')
+                        span Exact match
+                    a.dropdown-item(
+                        href='#',
+                        (click)='script.isRegex = true',
+                        [class.active]='script.isRegex',
+                    )
+                        i.fas.fa-fw([class.fa-check]='script.isRegex')
+                        span Regex
+                    a.dropdown-item(
+                        href='#',
+                        (click)='script.optional = !script.optional',
+                        [class.active]='script.optional',
+                    )
+                        i.fas.fa-fw([class.fa-check]='script.optional')
+                        span Optional
+            button.btn.btn-link.btn-sm.hover-reveal((click)='deleteScript(script)')
+                i.fas.fa-fw.fa-trash-alt
+
+button.btn.btn-secondary.mt-2((click)='addScript()')
+    i.fas.fa-plus
+    span New item

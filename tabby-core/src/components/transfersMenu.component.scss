@@ -1,0 +1,57 @@
+:host {
+    min-width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.transfer {
+    display: flex;
+    align-items: center;
+    padding: 5px 0 5px 25px;
+    width: 100%;
+
+    .icon {
+        padding: 4px 7px;
+        width: 36px;
+        height: 32px;
+        background: rgba(0,0,0,.25);
+        margin-right: 12px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        margin-right: auto;
+        margin-bottom: 3px;
+        width: 100%;
+
+        label {
+            margin: 0;
+            max-width: 100%;
+        }
+    }
+
+    .metadata {
+        font-size: 10px;
+        opacity: .5;
+        display: flex;
+        align-items: center;
+
+        .speed {
+            margin-left: auto;
+        }
+    }
+
+    > i {
+        margin-right: 10px;
+    }
+}
+
+button {
+    flex: none;
+}
+
+svg {
+    height: 14px;
+}

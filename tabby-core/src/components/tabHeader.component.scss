@@ -1,0 +1,132 @@
+$tabs-height: 38px;
+
+:host {
+    position: relative;
+    cursor: pointer;
+
+    > * { cursor: pointer; }
+
+    flex: 1000 1 200px;
+    width: 200px;
+    padding: 0 10px;
+
+    &.flex-width {
+        flex: 1000 1 auto;
+        width: auto;
+    }
+
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+
+    overflow: hidden;
+
+    &.vertical {
+      flex: none;
+      height: $tabs-height;
+    }
+
+    .index {
+        flex: none;
+        font-weight: bold;
+        -webkit-app-region: no-drag;
+        cursor: -webkit-grab;
+
+        width: 22px;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.25s all;
+        align-self: center;
+    }
+
+    .name {
+        flex: auto;
+        margin-top: 1px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        min-width: 0;
+        align-self: center;
+    }
+
+    .index + .name {
+        margin-left: 10px;
+    }
+
+    button {
+        display: block;
+        flex: none;
+        background: transparent;
+        opacity: 0;
+        -webkit-app-region: no-drag;
+
+        position: absolute;
+        right: 0;
+
+        $button-size: 26px;
+        width: $button-size;
+        height: $button-size;
+        border-radius: $button-size / 6;
+        line-height: $button-size;
+        align-self: center;
+
+        text-align: center;
+        font-size: 20px;
+
+        &:focus {
+          outline: 0;
+        }
+    }
+
+    &:hover .name:not(.no-hover) {
+        -webkit-mask-image: linear-gradient(black 0 0), linear-gradient(to left, transparent 0%, black 100%);
+        -webkit-mask-size: calc(100% - 60px) auto, 60px auto;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: left, right;
+    }
+
+    &:hover button {
+        transition: 0.25s opacity;
+        display: block;
+        opacity: 1;
+    }
+
+    &.drag-region {
+        -webkit-app-region: drag;
+    }
+
+    &.fully-draggable {
+        cursor: -webkit-grab;
+    }
+
+    .progressbar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 3px;
+        z-index: 1;
+        transition: 0.25s width;
+    }
+
+    .colorbar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    &.active .activity-indicator {
+        display: none;
+    }
+
+    .activity-indicator {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 4px;
+        height: 2px;
+        z-index: -1;
+    }
+}

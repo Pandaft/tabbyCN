@@ -1,0 +1,78 @@
+hotkeys:
+  toggle-fullscreen:
+    - 'F11'
+  close-tab:
+    - 'Ctrl-Shift-W'
+  reopen-tab:
+    - 'Ctrl-Shift-T'
+  toggle-last-tab: []
+  rename-tab:
+    - 'Ctrl-Shift-R'
+  next-tab:
+    - 'Ctrl-Shift-Right'
+    - 'Ctrl-Tab'
+  previous-tab:
+    - 'Ctrl-Shift-Left'
+    - 'Ctrl-Shift-Tab'
+  move-tab-left:
+    - 'Ctrl-Shift-PageUp'
+  move-tab-right:
+    - 'Ctrl-Shift-PageDown'
+  rearrange-panes:
+    - 'Ctrl-Shift'
+  duplicate-tab: []
+  tab-1:
+    - 'Alt-1'
+  tab-2:
+    - 'Alt-2'
+  tab-3:
+    - 'Alt-3'
+  tab-4:
+    - 'Alt-4'
+  tab-5:
+    - 'Alt-5'
+  tab-6:
+    - 'Alt-6'
+  tab-7:
+    - 'Alt-7'
+  tab-8:
+    - 'Alt-8'
+  tab-9:
+    - 'Alt-9'
+  tab-10:
+    - 'Alt-0'
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - 'Ctrl-Shift-E'
+  split-bottom:
+    - 'Ctrl-Shift-D'
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - 'Ctrl-Alt-Right'
+  pane-nav-down:
+    - 'Ctrl-Alt-Down'
+  pane-nav-up:
+    - 'Ctrl-Alt-Up'
+  pane-nav-left:
+    - 'Ctrl-Alt-Left'
+  pane-nav-previous:
+    - 'Ctrl-Alt-['
+  pane-nav-next:
+    - 'Ctrl-Alt-]'
+  pane-maximize:
+    - 'Ctrl-Alt-Enter'
+  close-pane: []
+  switch-profile:
+    - 'Ctrl-Alt-T'
+  profile-selector:
+    - 'Ctrl-Shift-T'

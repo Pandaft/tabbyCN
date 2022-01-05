@@ -1,0 +1,22 @@
+doctype html
+html.tabby
+    head
+        meta(charset='UTF-8')
+        base(href='index.html')
+        script.
+            console.timeStamp('index')
+            window.nodeRequire = require
+        script(src='./preload.js')
+        script(src='./bundle.js', defer)
+        style.
+            body { transition: 0.5s background; }
+    body
+        style#custom-css
+        app-root
+            .preload-logo
+                div
+                    .tabby-logo
+                    h1.tabby-title Tabby
+                        sup α
+                    .progress
+                        .bar(style='width: 0%')
