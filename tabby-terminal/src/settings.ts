@@ -10,7 +10,7 @@ import { ColorSchemeSettingsTabComponent } from './components/colorSchemeSetting
 export class AppearanceSettingsTabProvider extends SettingsTabProvider {
     id = 'terminal-appearance'
     icon = 'swatchbook'
-    title = 'Appearance'
+    title = '外观'
     prioritized = true
 
     getComponentType (): any {
@@ -23,7 +23,7 @@ export class AppearanceSettingsTabProvider extends SettingsTabProvider {
 export class ColorSchemeSettingsTabProvider extends SettingsTabProvider {
     id = 'terminal-color-scheme'
     icon = 'palette'
-    title = 'Color scheme'
+    title = '配色方案'
 
     getComponentType (): any {
         return ColorSchemeSettingsTabComponent
@@ -35,7 +35,7 @@ export class ColorSchemeSettingsTabProvider extends SettingsTabProvider {
 export class TerminalSettingsTabProvider extends SettingsTabProvider {
     id = 'terminal'
     icon = 'terminal'
-    title = 'Terminal'
+    title = '终端'
     prioritized = true
 
     getComponentType (): any {

@@ -1,16 +1,16 @@
 .d-flex.mb-3
-    h3 Plugins
+    h3 插件
     button.btn.btn-secondary.btn-sm.ml-auto((click)='openPluginsFolder()')
         i.fas.fa-folder
-        span Plugins folder
+        span 插件目录
 
 .alert.alert-danger(*ngIf='errorMessage')
-    strong Error in {{erroredPlugin}}:
+    strong 错误 {{erroredPlugin}}:
     pre {{errorMessage}}
 
 ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
     li(ngbNavItem)
-        a(ngbNavLink) Available
+        a(ngbNavLink) 未安装
         ng-template(ngbNavContent)
             .input-group.mb-3.mt-3
                 .input-group-prepend
@@ -40,14 +40,14 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
                                     )
                                         i.fas.fa-fw.fa-cloud-download(*ngIf='busy.get(plugin.name) != BusyState.Installing')
                                         i.fas.fa-fw.fa-circle-notch.fa-spin(*ngIf='busy.get(plugin.name) == BusyState.Installing')
-                                        span.ml-2 Get
+                                        span.ml-2 安装
 
                                     button.btn.btn-secondary.btn-block.justify-content-center(
                                         *ngIf='plugin.homepage',
                                         (click)='showPluginHomepage(plugin)'
                                     )
                                         i.fas.fa-fw.fa-external-link-alt
-                                        span.ml-2 Homepage
+                                        span.ml-2 主页
 
                                 .col-8
                                     ng-container(*ngTemplateOutlet='pluginInfo; context: { plugin }')
@@ -55,7 +55,7 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
                             .mt-2 {{plugin.description}}
 
     li(ngbNavItem)
-        a(ngbNavLink) Installed
+        a(ngbNavLink) 已安装
         ng-template(ngbNavContent)
             ngb-accordion.mb-4([closeOthers]='true')
                 ng-container(*ngFor='let plugin of pluginManager.installedPlugins')
@@ -64,8 +64,8 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
                             .text-left.mr-auto
                                 div
                                     strong {{plugin.name}}
-                                    small.text-muted.ml-2(*ngIf='plugin.isBuiltin') Built-in
-                                    small.text-warning.ml-2(*ngIf='!isPluginEnabled(plugin)') Disabled
+                                    small.text-muted.ml-2(*ngIf='plugin.isBuiltin') 内置
+                                    small.text-warning.ml-2(*ngIf='!isPluginEnabled(plugin)') 已停用
                                 small.d-block.text-muted {{plugin.description}}
 
                             button.btn.btn-primary.ml-2(
@@ -75,7 +75,7 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
                             )
                                 i.fas.fa-fw.fa-arrow-up(*ngIf='busy.get(plugin.name) != BusyState.Installing')
                                 i.fas.fa-fw.fa-circle-notch.fa-spin(*ngIf='busy.get(plugin.name) == BusyState.Installing')
-                                span Upgrade to {{knownUpgrades[plugin.name].version}}
+                                span 升级到 {{knownUpgrades[plugin.name].version}}
 
                         ng-template(ngbPanelContent)
                             .row
@@ -84,12 +84,12 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
                                         (click)='togglePlugin(plugin)',
                                         *ngIf='isPluginEnabled(plugin)',
                                         [disabled]='!canDisablePlugin(plugin)'
-                                    ) Disable
+                                    ) 停用
 
                                     button.btn.btn-success.btn-block.justify-content-center(
                                         (click)='togglePlugin(plugin)',
                                         *ngIf='canDisablePlugin(plugin) && !isPluginEnabled(plugin)'
-                                    ) Enable
+                                    ) 启用
 
                                     button.btn.btn-danger.btn-block.justify-content-center(
                                         (click)='uninstallPlugin(plugin)',
@@ -98,7 +98,7 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
                                     )
                                         i.fas.fa-fw.fa-trash(*ngIf='busy.get(plugin.name) != BusyState.Uninstalling')
                                         i.fas.fa-fw.fa-circle-notch.fa-spin(*ngIf='busy.get(plugin.name) == BusyState.Uninstalling')
-                                        span Uninstall
+                                        span 卸载
                                 .col-8
                                     ng-container(*ngTemplateOutlet='pluginInfo; context: { plugin }')
 
@@ -108,16 +108,16 @@ ul.nav-tabs.mb-2(ngbNav, #nav='ngbNav')
 ng-template(#pluginInfo, let-plugin='plugin')
     .row.align-items-center
         .col-4
-            strong Version
+            strong 版本
         .col-8
             span {{plugin.version}}
     .row.align-items-center
         .col-4
-            strong Author
+            strong 作者
         .col-8
             .badge.badge-success(*ngIf='plugin.isOfficial')
                 i.fas.fa-check
-                span.ml-1 Official
+                span.ml-1 官方的
             a.btn.btn-link.px-0.w-auto((click)='showPluginInfo(plugin)', *ngIf='!plugin.isOfficial')
                 span {{plugin.author}}
                 i.fas.fa-fw.fa-external-link-alt.ml-2

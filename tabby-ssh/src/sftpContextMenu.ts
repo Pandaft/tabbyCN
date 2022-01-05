@@ -25,16 +25,16 @@ export class CommonSFTPContextMenu extends SFTPContextMenuItemProvider {
                 click: async () => {
                     if ((await this.platform.showMessageBox({
                         type: 'warning',
-                        message: `Delete ${item.fullPath}?`,
+                        message: `确定删除 ${item.fullPath} ？`,
                         defaultId: 0,
                         cancelId: 1,
-                        buttons: ['Delete', 'Cancel'],
+                        buttons: ['确定', '取消'],
                     })).response === 0) {
                         await this.deleteItem(item, panel.sftp)
                         panel.navigate(panel.path)
                     }
                 },
-                label: 'Delete',
+                label: '删除',
             },
         ]
     }

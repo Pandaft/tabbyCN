@@ -26,7 +26,7 @@ export class EditSFTPContextMenu extends SFTPContextMenuItemProvider {
         return [
             {
                 click: () => this.edit(item, panel.sftp),
-                label: 'Edit locally',
+                label: '在本地编辑',
             },
         ]
     }

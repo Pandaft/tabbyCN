@@ -7,7 +7,7 @@ import { PluginsSettingsTabComponent } from './components/pluginsSettingsTab.com
 @Injectable()
 export class PluginsSettingsTabProvider extends SettingsTabProvider {
     id = 'plugins'
-    title = 'Plugins'
+    title = '插件'
 
     getComponentType (): any {
         return PluginsSettingsTabComponent

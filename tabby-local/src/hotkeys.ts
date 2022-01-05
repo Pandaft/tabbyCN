@@ -7,7 +7,7 @@ export class LocalTerminalHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'new-tab',
-            name: 'New tab',
+            name: '新标签页',
         },
     ]
 

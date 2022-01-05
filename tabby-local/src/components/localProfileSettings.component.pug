@@ -2,13 +2,13 @@ command-line-editor([model]='profile.options')
 
 .form-line(*ngIf='uac.isAvailable')
     .header
-        .title Run as administrator
+        .title 以管理员身份运行
     toggle(
         [(ngModel)]='profile.options.runAsAdministrator',
     )
 
 .form-group
-    label Working directory
+    label 工作目录
 
     .input-group
         input.form-control(
@@ -21,7 +21,7 @@ command-line-editor([model]='profile.options')
                 i.fas.fa-folder-open
 
 .form-group
-    label Environment
+    label 环境
     environment-editor(
         type='text',
         [(model)]='profile.options.env',

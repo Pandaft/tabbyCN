@@ -42,13 +42,13 @@ export class LinkHighlighterDecorator extends TerminalDecorator {
                             this.platform.popupContextMenu([
                                 {
                                     click: () => openLink(uri),
-                                    label: 'Open',
+                                    label: '打开',
                                 },
                                 {
                                     click: async () => {
                                         this.platform.setClipboard({ text: await getLink(uri) })
                                     },
-                                    label: 'Copy',
+                                    label: '复制',
                                 },
                             ])
                             return false

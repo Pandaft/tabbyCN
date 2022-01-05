@@ -12,7 +12,7 @@ import { BAUD_RATES, SerialProfile } from './api'
 @Injectable({ providedIn: 'root' })
 export class SerialProfilesService extends ProfileProvider<SerialProfile> {
     id = 'serial'
-    name = 'Serial'
+    name = '串口'
     settingsComponent = SerialProfileSettingsComponent
     configDefaults = {
         options: {
@@ -51,7 +51,7 @@ export class SerialProfilesService extends ProfileProvider<SerialProfile> {
                 {
                     id: `serial:web`,
                     type: 'serial',
-                    name: 'Serial connection',
+                    name: '串口连接',
                     icon: 'fas fa-microchip',
                     isBuiltin: true,
                 } as SerialProfile,

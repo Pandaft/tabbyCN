@@ -16,7 +16,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
         return [
             {
                 icon: require('./icons/plus.svg'),
-                title: 'New terminal',
+                title: '新终端',
                 touchBarNSImage: 'NSTouchBarAddDetailTemplate',
                 click: () => {
                     this.terminal.openTab()

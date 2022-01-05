@@ -7,11 +7,11 @@ export class ElectronHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'new-window',
-            name: 'New window',
+            name: '新建窗口',
         },
         {
             id: 'toggle-window',
-            name: 'Toggle terminal window',
+            name: '切换终端窗口',
         },
     ]
 

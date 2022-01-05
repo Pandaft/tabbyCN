@@ -43,7 +43,7 @@ export class SearchPanelComponent {
         }
         if (!this.frontend.findNext(this.query, { ...this.options, incremental: incremental || undefined })) {
             this.notFound = true
-            this.notifications.notice('Not found')
+            this.notifications.notice('未找到')
         }
     }
 
@@ -53,7 +53,7 @@ export class SearchPanelComponent {
         }
         if (!this.frontend.findPrevious(this.query, { ...this.options, incremental: incremental || undefined })) {
             this.notFound = true
-            this.notifications.notice('Not found')
+            this.notifications.notice('未找到')
         }
     }
 

@@ -23,10 +23,10 @@ export class SaveAsProfileContextMenu extends TabContextMenuItemProvider {
         }
         const items: MenuItemOptions[] = [
             {
-                label: 'Save as profile',
+                label: '另存为配置文件',
                 click: async () => {
                     const modal = this.ngbModal.open(PromptModalComponent)
-                    modal.componentInstance.prompt = 'New profile name'
+                    modal.componentInstance.prompt = '新配置文件名'
                     const name = (await modal.result)?.value
                     if (!name) {
                         return
@@ -44,7 +44,7 @@ export class SaveAsProfileContextMenu extends TabContextMenuItemProvider {
                         profile,
                     ]
                     this.config.save()
-                    this.notifications.info('Saved')
+                    this.notifications.info('已保存')
                 },
             },
         ]
@@ -72,7 +72,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
 
         const items: MenuItemOptions[] = [
             {
-                label: 'New terminal',
+                label: '新终端',
                 click: () => {
                     if (tab instanceof TerminalTabComponent) {
                         this.profilesService.openNewTabForProfile(tab.profile)
@@ -82,7 +82,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
                 },
             },
             {
-                label: 'New with profile',
+                label: '打开配置文件',
                 submenu: profiles.map(profile => ({
                     label: profile.name,
                     click: async () => {
@@ -98,7 +98,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
 
         if (this.uac.isAvailable) {
             items.push({
-                label: 'New admin tab',
+                label: '打开配置文件（管理员权限）',
                 submenu: profiles.map(profile => ({
                     label: profile.name,
                     click: () => {
@@ -116,7 +116,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
 
         if (tab instanceof TerminalTabComponent && tabHeader && this.uac.isAvailable) {
             items.push({
-                label: 'Duplicate as administrator',
+                label: '以管理员身份克隆',
                 click: () => {
                     this.profilesService.openNewTabForProfile({
                         ...tab.profile,
@@ -131,7 +131,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
 
         if (tab instanceof TerminalTabComponent && tab.parent instanceof SplitTabComponent && tab.parent.getAllTabs().length > 1) {
             items.push({
-                label: 'Focus all panes',
+                label: '聚焦所有窗格',
                 click: () => {
                     tab.focusAllPanes()
                 },

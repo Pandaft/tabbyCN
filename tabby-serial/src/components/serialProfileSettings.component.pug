@@ -1,11 +1,11 @@
 ul.nav-tabs(ngbNav, #nav='ngbNav')
     li(ngbNavItem)
-        a(ngbNavLink) General
+        a(ngbNavLink) 常规
         ng-template(ngbNavContent)
             .row
                 .col-6(ng:if='hostApp.platform !== Platform.Web')
                     .form-group
-                        label Device
+                        label 设备
                         input.form-control(
                             type='text',
                             alwaysVisibleTypeahead,
@@ -16,11 +16,11 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
                 .col-6
                     .form-group
-                        label Baud Rate
+                        label 波特率（传输速率）
                         input.form-control(
                             type='number',
                             alwaysVisibleTypeahead,
-                            placeholder='Ask every time',
+                            placeholder='每次打开填写',
                             [(ngModel)]='profile.options.baudrate',
                             [ngbTypeahead]='baudratesAutocomplete'
                         )
@@ -28,11 +28,11 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
             stream-processing-settings([options]='profile.options')
 
     li(ngbNavItem)
-        a(ngbNavLink) Advanced
+        a(ngbNavLink) 高级
         ng-template(ngbNavContent)
             .form-line
                 .header
-                    .title Data bits
+                    .title 数据位（Data bits）
                 input.form-control(
                     type='number',
                     placeholder='8',
@@ -41,7 +41,7 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
             .form-line
                 .header
-                    .title Stop bits
+                    .title 停止位（Stop bits）
                 input.form-control(
                     type='number',
                     placeholder='1',
@@ -50,14 +50,14 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
             .form-line
                 .header
-                    .title Parity
+                    .title 奇偶校验（Parity）
                 select.form-control(
                     type='text',
                     [(ngModel)]='profile.options.parity'
                 )
                     option(value='none') None
-                    option(value='even') Even
-                    option(value='odd') Odd
+                    option(value='even') 偶（Even）
+                    option(value='odd') 奇（Odd）
                     option(value='mark', ng:if='hostApp.platform === Platform.Windows') Mark
                     option(value='space', ng:if='hostApp.platform === Platform.Windows') Space
 
@@ -84,11 +84,11 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
             .form-line
                 .header
                     .title Slow feed
-                    .description Sends data one byte at a time
+                    .description 每次只发送一个字节
                 toggle([(ngModel)]='profile.options.slowFeed')
 
     li(ngbNavItem)
-        a(ngbNavLink) Login scripts
+        a(ngbNavLink) 登陆脚本
         ng-template(ngbNavContent)
             login-scripts-settings([options]='profile.options')
 

@@ -1,12 +1,12 @@
-h3.mb-3 Profiles
+h3.mb-3 配置文件
 
 ul.nav-tabs(ngbNav, #nav='ngbNav')
     li(ngbNavItem)
-        a(ngbNavLink) Profiles
+        a(ngbNavLink) 配置文件
         ng-template(ngbNavContent)
             .form-line
                 .header
-                    .title Default profile for new tabs
+                    .title 新标签页默认配置文件
 
                 select.form-control(
                     [(ngModel)]='config.store.terminal.profile',
@@ -30,7 +30,7 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
                 button.btn.btn-primary.flex-shrink-0.ml-3((click)='newProfile()')
                     i.fas.fa-fw.fa-plus
-                    | New profile
+                    | 新建配置文件
 
             .list-group.mt-3.mb-3
                 ng-container(*ngFor='let group of profileGroups')
@@ -88,12 +88,12 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
                                     .ml-1(class='badge badge-{{getTypeColorClass(profile)}}') {{getTypeLabel(profile)}}
 
     li(ngbNavItem)
-        a(ngbNavLink) Advanced
+        a(ngbNavLink) 高级
         ng-template(ngbNavContent)
             .form-line(*ngIf='config.store.profiles.length > 0')
                 .header
-                    .title Show recent profiles in selector
-                    .description Set to 0 to disable recent profiles
+                    .title 在选择器中显示最近的配置文件数
+                    .description 设置 0 为不显示
 
                 input.form-control(
                     type='number',
@@ -105,8 +105,8 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
             .form-line(*ngIf='config.store.profiles.length > 0')
                 .header
-                    .title Show built-in profiles in selector
-                    .description If disabled, only custom profiles will show up in the profile selector
+                    .title 在选择器中显示内置配置文件
+                    .description 如果禁用，选择器中仅显示自定义配置文件
 
                 toggle(
                     [(ngModel)]='config.store.terminal.showBuiltinProfiles',
@@ -115,8 +115,8 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
             .form-line
                 .header
-                    .title Default profile settings
-                    .description These apply to all profiles of a given type
+                    .title 默认配置文件设置
+                    .description 将应用于给定类型的所有配置文件
 
             .list-group.mt-3.mb-3
                 a.list-group-item.list-group-item-action(

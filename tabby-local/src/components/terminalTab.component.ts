@@ -108,8 +108,8 @@ export class TerminalTabComponent extends BaseTerminalTabComponent {
         return (await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: `"${children[0].command}" is still running. Close?`,
-                buttons: ['Kill', 'Cancel'],
+                message: `"${children[0].command}" 正在运行中，是否关闭？`,
+                buttons: ['关闭', '取消'],
                 defaultId: 0,
                 cancelId: 1,
             }

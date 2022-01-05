@@ -7,7 +7,7 @@ export class TelnetHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'restart-telnet-session',
-            name: 'Restart current Telnet session',
+            name: '重新打开当前 Telnet 会话',
         },
     ]
 

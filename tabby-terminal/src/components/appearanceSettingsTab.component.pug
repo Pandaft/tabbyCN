@@ -1,9 +1,9 @@
-h3.mb-3 Appearance
+h3.mb-3 外观
 .row
     .col-12.col-md-6
         .form-line
             .header
-                .title Font
+                .title 字体
 
             .input-group.w-75
                 input.form-control.w-75(
@@ -22,7 +22,7 @@ h3.mb-3 Appearance
 
         .form-line
             .header
-                .title Enable font ligatures
+                .title 启用连体字
             toggle(
                 [(ngModel)]='config.store.terminal.ligatures',
                 (ngModelChange)='config.save()',
@@ -34,7 +34,7 @@ h3.mb-3 Appearance
 .content-box
     .form-line
         .header
-            .title Terminal background
+            .title 终端背景
 
         .btn-group(
             [(ngModel)]='config.store.terminal.background',
@@ -47,18 +47,18 @@ h3.mb-3 Appearance
                     ngbButton,
                     [value]='"theme"'
                 )
-                | From theme
+                | 根据主题
             label.btn.btn-secondary(ngbButtonLabel)
                 input(
                     type='radio',
                     ngbButton,
                     [value]='"colorScheme"'
                 )
-                | From color scheme
+                | 根据配色方案
 
     .form-line
         .header
-            .title Cursor shape
+            .title 光标形状
 
         .btn-group(
             [(ngModel)]='config.store.terminal.cursor',
@@ -89,7 +89,7 @@ h3.mb-3 Appearance
 
     .form-line
         .header
-            .title Blink cursor
+            .title 闪烁光标
 
         toggle(
             [(ngModel)]='config.store.terminal.cursorBlink',
@@ -98,8 +98,8 @@ h3.mb-3 Appearance
 
     .form-line
         .header
-            .title Fallback font
-            .description A second font family used to display characters missing in the main font
+            .title 备用字体
+            .description 第二种字体，用于显示主字体中缺失的字符
 
         input.form-control(
             type='text',
@@ -110,8 +110,8 @@ h3.mb-3 Appearance
 
     .form-line
         .header
-            .title Line padding
-            .description Additional space between lines
+            .title 行间距
+            .description 行与行之间的间隙
         input.form-control(
             type='number',
             [(ngModel)]='config.store.terminal.linePadding',
@@ -121,7 +121,7 @@ h3.mb-3 Appearance
 
     .form-line
         .header
-            .title Custom CSS
+            .title 自定义 CSS
 
     textarea.form-control.mb-5(
         [(ngModel)]='config.store.appearance.css',

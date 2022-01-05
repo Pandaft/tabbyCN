@@ -7,11 +7,11 @@ export class SSHHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'restart-ssh-session',
-            name: 'Restart current SSH session',
+            name: '重新打开当前 SSH 会话',
         },
         {
             id: 'launch-winscp',
-            name: 'Launch WinSCP for current SSH session',
+            name: '为当前 SSH 会话启动 WinSCP',
         },
     ]
 

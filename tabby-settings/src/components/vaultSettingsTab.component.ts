@@ -43,8 +43,8 @@ export class VaultSettingsTabComponent extends BaseComponent {
         if ((await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: 'Delete vault contents?',
-                buttons: ['Delete', 'Keep'],
+                message: '删除保管库内容？',
+                buttons: ['删除', '取消'],
                 defaultId: 1,
                 cancelId: 1,
             }

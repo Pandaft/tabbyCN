@@ -11,7 +11,7 @@ import { ProfilesSettingsTabComponent } from './components/profilesSettingsTab.c
 export class HotkeySettingsTabProvider extends SettingsTabProvider {
     id = 'hotkeys'
     icon = 'keyboard'
-    title = 'Hotkeys'
+    title = '热键'
 
     getComponentType (): any {
         return HotkeySettingsTabComponent
@@ -24,7 +24,7 @@ export class HotkeySettingsTabProvider extends SettingsTabProvider {
 export class WindowSettingsTabProvider extends SettingsTabProvider {
     id = 'window'
     icon = 'window-maximize'
-    title = 'Window'
+    title = '窗口'
 
     getComponentType (): any {
         return WindowSettingsTabComponent
@@ -37,7 +37,7 @@ export class WindowSettingsTabProvider extends SettingsTabProvider {
 export class VaultSettingsTabProvider extends SettingsTabProvider {
     id = 'vault'
     icon = 'key'
-    title = 'Vault'
+    title = '保管库'
 
     getComponentType (): any {
         return VaultSettingsTabComponent
@@ -50,7 +50,7 @@ export class VaultSettingsTabProvider extends SettingsTabProvider {
 export class ProfilesSettingsTabProvider extends SettingsTabProvider {
     id = 'profiles'
     icon = 'window-restore'
-    title = 'Profiles & connections'
+    title = '配置文件和连接'
     prioritized = true
 
     getComponentType (): any {
@@ -63,7 +63,7 @@ export class ProfilesSettingsTabProvider extends SettingsTabProvider {
 export class ConfigSyncSettingsTabProvider extends SettingsTabProvider {
     id = 'config-sync'
     icon = 'cloud'
-    title = 'Config sync'
+    title = '同步配置'
 
     getComponentType (): any {
         return ConfigSyncSettingsTabComponent

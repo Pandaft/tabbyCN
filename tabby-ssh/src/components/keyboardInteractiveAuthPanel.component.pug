@@ -1,5 +1,5 @@
 .d-flex
-    strong Keyboard-interactive auth
+    strong 键盘交互认证
     .ml-2 {{prompt.name}}
 
 .prompt-text {{prompt.prompts[step].prompt}}
@@ -22,5 +22,5 @@ input.form-control.mt-2(
     button.btn.btn-primary(
         (click)='next()'
     )
-        span(*ngIf='step < prompt.prompts.length - 1') Next
-        span(*ngIf='step == prompt.prompts.length - 1') Finish
+        span(*ngIf='step < prompt.prompts.length - 1') 下一个
+        span(*ngIf='step == prompt.prompts.length - 1') 完成

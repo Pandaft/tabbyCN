@@ -21,16 +21,16 @@ export class CopyPasteContextMenu extends TabContextMenuItemProvider {
         if (tab instanceof BaseTerminalTabComponent) {
             return [
                 {
-                    label: 'Copy',
+                    label: '复制',
                     click: (): void => {
                         setTimeout(() => {
                             tab.frontend?.copySelection()
-                            this.notifications.notice('Copied')
+                            this.notifications.notice('已复制')
                         })
                     },
                 },
                 {
-                    label: 'Paste',
+                    label: '粘贴',
                     click: () => tab.paste(),
                 },
             ]
@@ -47,7 +47,7 @@ export class MiscContextMenu extends TabContextMenuItemProvider {
     async getItems (tab: BaseTabComponent): Promise<MenuItemOptions[]> {
         if (tab instanceof BaseTerminalTabComponent && tab.session?.supportsWorkingDirectory()) {
             return [{
-                label: 'Copy current path',
+                label: '复制当前路径',
                 click: () => tab.copyCurrentPath(),
             }]
         }

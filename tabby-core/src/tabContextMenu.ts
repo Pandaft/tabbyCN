@@ -29,7 +29,7 @@ export class TabManagementContextMenu extends TabContextMenuItemProvider {
     async getItems (tab: BaseTabComponent, tabHeader?: TabHeaderComponent): Promise<MenuItemOptions[]> {
         let items: MenuItemOptions[] = [
             {
-                label: 'Close',
+                label: '关闭',
                 click: () => {
                     if (this.app.tabs.includes(tab)) {
                         this.app.closeTab(tab, true)
@@ -43,7 +43,7 @@ export class TabManagementContextMenu extends TabContextMenuItemProvider {
             items = [
                 ...items,
                 {
-                    label: 'Close other tabs',
+                    label: '关闭其他标签页',
                     click: () => {
                         for (const t of this.app.tabs.filter(x => x !== tab)) {
                             this.app.closeTab(t, true)
@@ -51,7 +51,7 @@ export class TabManagementContextMenu extends TabContextMenuItemProvider {
                     },
                 },
                 {
-                    label: 'Close tabs to the right',
+                    label: '关闭右边的标签页',
                     click: () => {
                         for (const t of this.app.tabs.slice(this.app.tabs.indexOf(tab) + 1)) {
                             this.app.closeTab(t, true)
@@ -59,7 +59,7 @@ export class TabManagementContextMenu extends TabContextMenuItemProvider {
                     },
                 },
                 {
-                    label: 'Close tabs to the left',
+                    label: '关闭左边的标签页',
                     click: () => {
                         for (const t of this.app.tabs.slice(0, this.app.tabs.indexOf(tab))) {
                             this.app.closeTab(t, true)
@@ -71,13 +71,13 @@ export class TabManagementContextMenu extends TabContextMenuItemProvider {
             if (tab.parent instanceof SplitTabComponent) {
                 const directions: SplitDirection[] = ['r', 'b', 'l', 't']
                 items.push({
-                    label: 'Split',
+                    label: '拆分',
                     submenu: directions.map(dir => ({
                         label: {
-                            r: 'Right',
-                            b: 'Down',
-                            l: 'Left',
-                            t: 'Up',
+                            r: '向右',
+                            b: '向下',
+                            l: '向左',
+                            t: '向上',
                         }[dir],
                         click: () => {
                             (tab.parent as SplitTabComponent).splitTab(tab, dir)
@@ -109,15 +109,15 @@ export class CommonOptionsContextMenu extends TabContextMenuItemProvider {
             items = [
                 ...items,
                 {
-                    label: 'Rename',
+                    label: '重命名',
                     click: () => tabHeader.showRenameTabModal(),
                 },
                 {
-                    label: 'Duplicate',
+                    label: '克隆',
                     click: () => this.app.duplicateTab(tab),
                 },
                 {
-                    label: 'Color',
+                    label: '颜色',
                     sublabel: TAB_COLORS.find(x => x.value === tab.color)?.name,
                     submenu: TAB_COLORS.map(color => ({
                         label: color.name,
@@ -132,10 +132,10 @@ export class CommonOptionsContextMenu extends TabContextMenuItemProvider {
 
             if (tab instanceof SplitTabComponent && tab.getAllTabs().length > 1) {
                 items.push({
-                    label: 'Save layout as profile',
+                    label: '保存布局为配置文件',
                     click: async () => {
                         const modal = this.ngbModal.open(PromptModalComponent)
-                        modal.componentInstance.prompt = 'Profile name'
+                        modal.componentInstance.prompt = '配置文件名'
                         const name = (await modal.result)?.value
                         if (!name) {
                             return
@@ -167,10 +167,10 @@ export class TaskCompletionContextMenu extends TabContextMenuItemProvider {
         if (process) {
             items.push({
                 enabled: false,
-                label: 'Current process: ' + process.name,
+                label: '当前进程：' + process.name,
             })
             items.push({
-                label: 'Notify when done',
+                label: '完成时通知',
                 type: 'checkbox',
                 checked: extTab.__completionNotificationEnabled,
                 click: () => {
@@ -178,7 +178,7 @@ export class TaskCompletionContextMenu extends TabContextMenuItemProvider {
 
                     if (extTab.__completionNotificationEnabled) {
                         this.app.observeTabCompletion(tab).subscribe(() => {
-                            new Notification('Process completed', {
+                            new Notification('进程完成', {
                                 body: process.name,
                             }).addEventListener('click', () => {
                                 this.app.selectTab(tab)
@@ -192,7 +192,7 @@ export class TaskCompletionContextMenu extends TabContextMenuItemProvider {
             })
         }
         items.push({
-            label: 'Notify on activity',
+            label: '活跃时通知',
             type: 'checkbox',
             checked: !!extTab.__outputNotificationSubscription,
             click: () => {
@@ -204,7 +204,7 @@ export class TaskCompletionContextMenu extends TabContextMenuItemProvider {
                         if (extTab.__outputNotificationSubscription && active) {
                             extTab.__outputNotificationSubscription.unsubscribe()
                             extTab.__outputNotificationSubscription = null
-                            new Notification('Tab activity', {
+                            new Notification('标签页活跃', {
                                 body: tab.title,
                             }).addEventListener('click', () => {
                                 this.app.selectTab(tab)
@@ -270,7 +270,7 @@ export class ProfilesContextMenu extends TabContextMenuItemProvider {
         if (!tabHeader && tab.parent instanceof SplitTabComponent && tab.parent.getAllTabs().length > 1) {
             return [
                 {
-                    label: 'Switch profile',
+                    label: '切换配置文件',
                     click: () => this.switchTabProfile(tab),
                 },
             ]

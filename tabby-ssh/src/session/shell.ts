@@ -28,7 +28,7 @@ export class SSHShellSession extends BaseSession {
 
     async start (): Promise<void> {
         if (!this.ssh) {
-            throw new Error('SSH session not set')
+            throw new Error('未设置 SSH 会话')
         }
 
         this.ssh.ref()

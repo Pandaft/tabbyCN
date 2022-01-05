@@ -58,7 +58,7 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
             const profiles = [...this.templateProfiles, ...this.builtinProfiles, ...this.profiles]
             profiles.sort((a, b) => (a.weight ?? 0) - (b.weight ?? 0))
             base = await this.selector.show(
-                'Select a base profile to use as a template',
+                '选择要用作模板的基本配置文件',
                 profiles.map(p => ({
                     icon: p.icon,
                     description: this.profilesService.getDescription(p) ?? undefined,
@@ -98,7 +98,7 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
         )
         const provider = this.profilesService.providerForProfile(profile)
         if (!provider) {
-            throw new Error('Cannot edit a profile without a provider')
+            throw new Error('没有提供程序，无法编辑配置文件')
         }
         modal.componentInstance.profile = deepClone(profile)
         modal.componentInstance.profileProvider = provider
@@ -122,8 +122,8 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
         if ((await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: `Delete "${profile.name}"?`,
-                buttons: ['Delete', 'Keep'],
+                message: `确定删除 "${profile.name}" ？`,
+                buttons: ['确定', '取消'],
                 defaultId: 1,
                 cancelId: 1,
             }
@@ -181,8 +181,8 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
         if ((await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: `Delete "${group.name}"?`,
-                buttons: ['Delete', 'Keep'],
+                message: `确定删除 "${group.name}" ？`,
+                buttons: ['确定', '取消'],
                 defaultId: 1,
                 cancelId: 1,
             }
@@ -190,8 +190,8 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
             if ((await this.platform.showMessageBox(
                 {
                     type: 'warning',
-                    message: `Delete the group's profiles?`,
-                    buttons: ['Move to "Ungrouped"', 'Delete'],
+                    message: `删除分组中的所有配置文件？`,
+                    buttons: ['移动至 "Ungrouped" 分组', '删除'],
                     defaultId: 0,
                     cancelId: 0,
                 }

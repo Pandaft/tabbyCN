@@ -2,18 +2,18 @@
     .list-group-item.d-flex.align-items-center(*ngFor='let fw of model')
         div
             .ms-2.d-flex.align-items-center
-                strong(*ngIf='fw.type === PortForwardType.Local') Local
-                strong(*ngIf='fw.type === PortForwardType.Remote') Remote
-                strong(*ngIf='fw.type === PortForwardType.Dynamic') Dynamic
+                strong(*ngIf='fw.type === PortForwardType.Local') 本地
+                strong(*ngIf='fw.type === PortForwardType.Remote') 远程
+                strong(*ngIf='fw.type === PortForwardType.Dynamic') 动态
                 .ml-3 {{fw.host}}:{{fw.port}}
                 .ml-2 &rarr;
                 .ml-2(*ngIf='fw.type !== PortForwardType.Dynamic') {{fw.targetAddress}}:{{fw.targetPort}}
-                .ml-2(*ngIf='fw.type === PortForwardType.Dynamic') SOCKS proxy
+                .ml-2(*ngIf='fw.type === PortForwardType.Dynamic') SOCKS 代理
             div {{fw.description}}
         button.btn.btn-link.hover-reveal.ml-auto((click)='remove(fw)')
             i.fas.fa-trash-alt
 
-h5 Add a port forward
+h5 添加端口转发
 
 .input-group.mb-2(*ngIf='newForward.type === PortForwardType.Dynamic')
     input.form-control(type='text', [(ngModel)]='newForward.host')
@@ -22,7 +22,7 @@ h5 Add a port forward
     input.form-control(type='number', [(ngModel)]='newForward.port')
     .input-group-append
         .input-group-text &rarr;
-    .input-group-append.input-group-text(style='flex: 3 1 0') SOCKS proxy
+    .input-group-append.input-group-text(style='flex: 3 1 0') SOCKS 代理
 
 .input-group.mb-2(*ngIf='newForward.type !== PortForwardType.Dynamic')
     input.form-control(type='text', [(ngModel)]='newForward.host')
@@ -50,22 +50,22 @@ h5 Add a port forward
                 ngbButton,
                 [value]='PortForwardType.Local'
             )
-            | Local
+            | 本地
         label.btn.btn-secondary.m-0(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='PortForwardType.Remote'
             )
-            | Remote
+            | 远程
         label.btn.btn-secondary.m-0(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='PortForwardType.Dynamic'
             )
-            | Dynamic
+            | 动态
 
     button.btn.btn-primary((click)='addForward()')
         i.fas.fa-check.mr-2
-        span Forward port
+        span 转发端口

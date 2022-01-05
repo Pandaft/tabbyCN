@@ -18,6 +18,9 @@ footer.d-flex.align-items-center
             span GitHub
         button.btn.btn-dark((click)='homeBase.reportBug()')
             i.fas.fa-bug
-            span Report a problem
+            span 报告问题
+        button.btn.btn-dark((click)='homeBase.openTabbyCN()')
+            i.fab.fa-github
+            span Tabby 中文版
 
-    .form-control-static.selectable.no-drag Version: {{homeBase.appVersion}}
+    .form-control-static.selectable.no-drag 版本：{{homeBase.appVersion}}

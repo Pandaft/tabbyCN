@@ -7,11 +7,11 @@ export class SerialHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'serial',
-            name: 'Show Serial connections',
+            name: '显示串口连接',
         },
         {
             id: 'restart-serial-session',
-            name: 'Restart current serial session',
+            name: '重新启动当前串行会话',
         },
     ]
 

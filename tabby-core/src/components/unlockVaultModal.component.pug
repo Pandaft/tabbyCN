@@ -1,14 +1,14 @@
 .modal-body
     .d-flex.align-items-center.mb-3
-        h3.m-0 Vault is locked
+        h3.m-0 存储库已锁定
         .ml-auto(ngbDropdown, placement='bottom-right')
             button.btn.btn-link(ngbDropdownToggle, (click)='$event.stopPropagation()')
-                span(*ngIf='rememberFor') Remember for {{getRememberForDisplay(rememberFor)}}
-                span(*ngIf='!rememberFor') Do not remember
+                span(*ngIf='rememberFor') 记住 {{getRememberForDisplay(rememberFor)}}
+                span(*ngIf='!rememberFor') 不要记住
             div(ngbDropdownMenu)
                 button.dropdown-item(
                     (click)='rememberFor = 0',
-                ) Do not remember
+                ) 不要记住
                 button.dropdown-item(
                     *ngFor='let x of rememberOptions',
                     (click)='rememberFor = x',

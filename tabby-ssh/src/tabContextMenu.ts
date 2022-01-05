@@ -21,14 +21,14 @@ export class SFTPContextMenu extends TabContextMenuItemProvider {
             return []
         }
         const items = [{
-            label: 'Open SFTP panel',
+            label: '打开 SFTP 面板',
             click: () => {
                 tab.openSFTP()
             },
         }]
         if (this.hostApp.platform === Platform.Windows && this.ssh.getWinSCPPath()) {
             items.push({
-                label: 'Launch WinSCP',
+                label: '启动 WinSCP',
                 click: (): void => {
                     this.ssh.launchWinSCP(tab.sshSession!)
                 },

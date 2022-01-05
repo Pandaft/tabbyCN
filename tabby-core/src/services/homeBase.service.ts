@@ -27,6 +27,10 @@ export class HomeBaseService {
         this.platform.openExternal('https://github.com/Eugeny/tabby')
     }
 
+    openTabbyCN (): void {
+        this.platform.openExternal('https://github.com/Aixzk/tabbyCN')
+    }
+
     openDiscussions (): void {
         this.platform.openExternal('https://github.com/Eugeny/tabby/discussions')
     }

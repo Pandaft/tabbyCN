@@ -7,67 +7,67 @@ export class TerminalHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'copy',
-            name: 'Copy to clipboard',
+            name: '复制到剪贴板',
         },
         {
             id: 'paste',
-            name: 'Paste from clipboard',
+            name: '从剪贴板粘贴',
         },
         {
             id: 'home',
-            name: 'Beginning of the line',
+            name: '跳到行首',
         },
         {
             id: 'end',
-            name: 'End of the line',
+            name: '跳到行尾',
         },
         {
             id: 'previous-word',
-            name: 'Jump to previous word',
+            name: '跳到上一个单词',
         },
         {
             id: 'next-word',
-            name: 'Jump to next word',
+            name: '跳到下一个单词',
         },
         {
             id: 'delete-previous-word',
-            name: 'Delete previous word',
+            name: '删除上一个单词',
         },
         {
             id: 'delete-next-word',
-            name: 'Delete next word',
+            name: '删除后一个单词',
         },
         {
             id: 'clear',
-            name: 'Clear terminal',
+            name: '清空终端',
         },
         {
             id: 'zoom-in',
-            name: 'Zoom in',
+            name: '放大',
         },
         {
             id: 'zoom-out',
-            name: 'Zoom out',
+            name: '缩小',
         },
         {
             id: 'reset-zoom',
-            name: 'Reset zoom',
+            name: '重置缩放',
         },
         {
             id: 'ctrl-c',
-            name: 'Intelligent Ctrl-C (copy/abort)',
+            name: '智能 Ctrl-C (copy/abort)',
         },
         {
             id: 'copy-current-path',
-            name: 'Copy current path',
+            name: '复制当前路径',
         },
         {
             id: 'search',
-            name: 'Search',
+            name: '搜索',
         },
         {
             id: 'pane-focus-all',
-            name: 'Focus all panes at once (broadcast)',
+            name: '聚焦所有窗格（广播）',
         },
     ]
 

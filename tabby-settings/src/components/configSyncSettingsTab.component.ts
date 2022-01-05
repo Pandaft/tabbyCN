@@ -72,8 +72,8 @@ export class ConfigSyncSettingsTabComponent extends BaseComponent {
         if (this.config.store.configSync.configID !== cfg.id) {
             if ((await this.platform.showMessageBox({
                 type: 'warning',
-                message: 'Overwrite the config on the remote side and start syncing?',
-                buttons: ['Overwrite remote and sync', 'Cancel'],
+                message: '确定覆盖远程配置并开始同步？',
+                buttons: ['确定', '取消'],
                 defaultId: 1,
                 cancelId: 1,
             })).response === 1) {
@@ -83,14 +83,14 @@ export class ConfigSyncSettingsTabComponent extends BaseComponent {
         this.configSync.setConfig(cfg)
         await this.configSync.upload()
         this.loadConfigs()
-        this.notifications.info('Config uploaded')
+        this.notifications.info('已上传配置')
     }
 
     async downloadAndSync (cfg: Config) {
         if ((await this.platform.showMessageBox({
             type: 'warning',
-            message: 'Overwrite the local config and start syncing?',
-            buttons: ['Overwrite local and sync', 'Cancel'],
+            message: '确定覆盖本地配置并开始同步？',
+            buttons: ['确定', '取消'],
             defaultId: 1,
             cancelId: 1,
         })).response === 1) {
@@ -98,7 +98,7 @@ export class ConfigSyncSettingsTabComponent extends BaseComponent {
         }
         this.configSync.setConfig(cfg)
         await this.configSync.download()
-        this.notifications.info('Config downloaded')
+        this.notifications.info('已下载配置')
     }
 
     hasMatchingRemoteConfig () {

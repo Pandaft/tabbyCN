@@ -223,7 +223,7 @@ export class Session extends BaseSession {
         this.pty.subscribe('close', () => {
             this.ptyClosed = true
             if (this.pauseAfterExit) {
-                this.emitOutput(Buffer.from('\r\nPress any key to close\r\n'))
+                this.emitOutput(Buffer.from('\r\n按任意键关闭\r\n'))
             } else if (this.open) {
                 this.destroy()
             }

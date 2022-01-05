@@ -56,13 +56,13 @@ export class ResettableTimeout {
 }
 
 export const TAB_COLORS = [
-    { name: 'No color', value: null },
-    { name: 'Blue', value: '#0275d8' },
-    { name: 'Green', value: '#5cb85c' },
-    { name: 'Orange', value: '#f0ad4e' },
-    { name: 'Purple', value: '#613d7c' },
-    { name: 'Red', value: '#d9534f' },
-    { name: 'Yellow', value: '#ffd500' },
+    { name: '无色', value: null },
+    { name: '蓝色', value: '#0275d8' },
+    { name: '绿色', value: '#5cb85c' },
+    { name: '橙色', value: '#f0ad4e' },
+    { name: '紫色', value: '#613d7c' },
+    { name: '红色', value: '#d9534f' },
+    { name: '黄色', value: '#ffd500' },
 ]
 
 export function serializeFunction <T extends () => Promise<any>> (fn: T): T {

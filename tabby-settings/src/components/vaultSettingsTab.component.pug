@@ -1,27 +1,27 @@
 .text-center(*ngIf='!vault.isEnabled()')
     i.fas.fa-key.fa-3x.m-3
-    h3.m-3 Vault is not configured
-    .m-3 Vault is an always-encrypted container for secrets such as SSH passwords and private key passphrases.
-    button.btn.btn-primary.m-2((click)='enableVault()') Set master passphrase
+    h3.m-3 未配置保管库
+    .m-3 保管库是一个始终加密的容器，用于保管 secrets 例如 SSH 和私钥等.
+    button.btn.btn-primary.m-2((click)='enableVault()') 设置主密码
 
 
 div(*ngIf='vault.isEnabled()')
     .d-flex.align-items-center.mb-3
-        h3.m-0 Vault
+        h3.m-0 保管库
         .d-flex.ml-auto(ngbDropdown, *ngIf='vault.isEnabled()')
-            button.btn.btn-secondary(ngbDropdownToggle) Options
+            button.btn.btn-secondary(ngbDropdownToggle) 选项
             div(ngbDropdownMenu)
                 a(ngbDropdownItem, (click)='changePassphrase()')
                     i.fas.fa-fw.fa-key
-                    span Change the master passphrase
+                    span 更改主密码
                 a(ngbDropdownItem, (click)='disableVault()')
                     i.fas.fa-fw.fa-radiation-alt
-                    span Erase the vault
+                    span 清除保管库
 
     div(*ngIf='vaultContents')
         .text-center(*ngIf='!vaultContents.secrets.length')
             i.fas.fa-empty-set.fa-3x
-            h3.m-3 Vault is empty
+            h3.m-3 保管库为空
 
         .list-group
             .list-group-item.d-flex.align-items-center.p-1.pl-3(*ngFor='let secret of vaultContents.secrets')
@@ -38,30 +38,30 @@ div(*ngIf='vault.isEnabled()')
                             (click)='renameFile(secret)'
                         )
                             i.fas.fa-fw.fa-pencil-alt
-                            span Rename
+                            span 重命名
                         button(
                             ngbDropdownItem,
                             *ngIf='secret.type === VAULT_SECRET_TYPE_FILE',
                             (click)='replaceFileContent(secret)'
                         )
                             i.fas.fa-fw.fa-file-import
-                            span Replace
+                            span 替换
                         button(
                             ngbDropdownItem,
                             *ngIf='secret.type === VAULT_SECRET_TYPE_FILE',
                             (click)='exportFile(secret)'
                         )
                             i.fas.fa-fw.fa-file-export
-                            span Export
+                            span 导出
                         button(ngbDropdownItem, (click)='removeSecret(secret)')
                             i.fas.fa-fw.fa-trash
-                            span Delete
+                            span 删除
 
-        h3.mt-5 Options
+        h3.mt-5 选项
         .form-line
             .header
-                .title Encrypt config file
-                .description Puts all of Tabby's configuration into the vault
+                .title 加密配置文件
+                .description 将 Tabby 的所有配置保存到保管库
             toggle(
                 [ngModel]='config.store.encrypted',
                 (click)='toggleConfigEncrypted()',
@@ -69,5 +69,5 @@ div(*ngIf='vault.isEnabled()')
 
     .text-center(*ngIf='!vaultContents')
         i.fas.fa-key.fa-3x
-        h3.m-3 Vault is locked
-        button.btn.btn-primary.m-2((click)='loadVault()') Show vault contents
+        h3.m-3 保管库已锁定
+        button.btn.btn-primary.m-2((click)='loadVault()') 显示保管库内容

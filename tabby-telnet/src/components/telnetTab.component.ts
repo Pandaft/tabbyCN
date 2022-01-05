@@ -118,8 +118,8 @@ export class TelnetTabComponent extends BaseTerminalTabComponent {
         return (await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: `Disconnect from ${this.profile?.options.host}?`,
-                buttons: ['Disconnect', 'Do not close'],
+                message: `确定与 ${this.profile?.options.host} 断开连接？`,
+                buttons: ['确定', '取消'],
                 defaultId: 0,
                 cancelId: 1,
             }

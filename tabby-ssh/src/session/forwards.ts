@@ -45,7 +45,7 @@ export class ForwardedPort implements ForwardedPortConfig {
                 this.listener['useAuth'](socksv5.auth.None())
             })
         } else {
-            throw new Error('Invalid forward type for a local listener')
+            throw new Error('无效的本地监听器转发类型')
         }
     }
 

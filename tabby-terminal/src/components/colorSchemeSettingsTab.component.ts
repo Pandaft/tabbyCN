@@ -80,8 +80,8 @@ export class ColorSchemeSettingsTabComponent {
         if ((await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: `Delete "${scheme.name}"?`,
-                buttons: ['Delete', 'Keep'],
+                message: `确定删除 "${scheme.name}" ？`,
+                buttons: ['确定', '取消'],
                 defaultId: 1,
                 cancelId: 1,
             }

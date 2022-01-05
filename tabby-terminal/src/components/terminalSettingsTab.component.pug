@@ -1,10 +1,10 @@
 div
-    h3.mb-3 Rendering
+    h3.mb-3 渲染
 
     .form-line(*ngIf='hostApp.platform !== Platform.Web')
         .header
-            .title Frontend
-            .description Switches terminal frontend implementation (experimental)
+            .title 前端
+            .description 切换终端前端实现（实验性）
 
         select.form-control(
             [(ngModel)]='config.store.terminal.frontend',
@@ -15,8 +15,8 @@ div
 
     .form-line
         .header
-            .title Scrollback
-            .description Number of lines kept in the buffer
+            .title 回滚
+            .description 保持缓冲区行数
         input.form-control(
             type='number',
             [(ngModel)]='config.store.terminal.scrollbackLines',
@@ -24,12 +24,12 @@ div
         )
 
 div.mt-4
-    h3 Keyboard
+    h3 键盘
 
     .form-line
         .header
-            .title Use {{altKeyName}} as the Meta key
-            .description Lets the shell handle Meta key instead of OS
+            .title 使用 {{altKeyName}} 作为主按键
+            .description 让 shell 替代 os 处理主按键
         toggle(
             [(ngModel)]='config.store.terminal.altIsMeta',
             (ngModelChange)='config.save()',
@@ -37,20 +37,20 @@ div.mt-4
 
     .form-line
         .header
-            .title Scroll on input
-            .description Scrolls the terminal to the bottom on user input
+            .title 滚动时输入
+            .description 滚动到用户输入的位置
         toggle(
             [(ngModel)]='config.store.terminal.scrollOnInput',
             (ngModelChange)='config.save()',
         )
 
 div.mt-4
-    h3 Mouse
+    h3 鼠标
 
     .form-line
         .header
-            .title Right click
-            .description(*ngIf='config.store.terminal.rightClick == "paste"') Long-click for context menu
+            .title 右键
+            .description(*ngIf='config.store.terminal.rightClick == "paste"') 长按右键弹出菜单
         .btn-group(
             [(ngModel)]='config.store.terminal.rightClick',
             (ngModelChange)='config.save()',
@@ -62,25 +62,25 @@ div.mt-4
                     ngbButton,
                     value='off'
                 )
-                | Off
+                | 关闭
             label.btn.btn-secondary(ngbButtonLabel)
                 input(
                     type='radio',
                     ngbButton,
                     value='menu'
                 )
-                | Context menu
+                | 菜单
             label.btn.btn-secondary(ngbButtonLabel)
                 input(
                     type='radio',
                     ngbButton,
                     value='paste'
                 )
-                | Paste
+                | 粘贴
 
     .form-line
         .header
-            .title Paste on middle-click
+            .title 单击中键粘贴
 
         toggle(
             [(ngModel)]='config.store.terminal.pasteOnMiddleClick',
@@ -89,8 +89,8 @@ div.mt-4
 
     .form-line
         .header
-            .title Word separators
-            .description Double-click selection will stop at these characters
+            .title 分隔符
+            .description 双击时选区将停在这些字符
         input.form-control(
             type='text',
             placeholder=' ()[]{}\'"',
@@ -100,8 +100,8 @@ div.mt-4
 
     .form-line
         .header
-            .title Require a key to click links
-            .description When enabled, links are only clickable while holding this key
+            .title 点击链接时需要按键
+            .description 启用后需要按着该按键才能使链接能被点击
 
         select.form-control(
             [(ngModel)]='config.store.clickableLinks.modifier',
@@ -114,11 +114,11 @@ div.mt-4
             option(value='metaKey') {{metaKeyName}}
 
 div.mt-4
-    h3 Clipboard
+    h3 剪贴板
 
     .form-line
         .header
-            .title Copy on select
+            .title 选择时复制
         toggle(
             [(ngModel)]='config.store.terminal.copyOnSelect',
             (ngModelChange)='config.save()',
@@ -126,8 +126,8 @@ div.mt-4
 
     .form-line
         .header
-            .title Bracketed paste (requires shell support)
-            .description Prevents accidental execution of pasted commands
+            .title Bracketed 粘贴（需要 shell 支持）
+            .description 防止意外执行粘贴的代码和破坏粘贴代码的结构
         toggle(
             [(ngModel)]='config.store.terminal.bracketedPaste',
             (ngModelChange)='config.save()',
@@ -135,19 +135,19 @@ div.mt-4
 
     .form-line
         .header
-            .title Warn on multi-line paste
-            .description Show a confirmation box when pasting multiple lines
+            .title 多行粘贴时警告
+            .description 当粘贴多行时显示一个确认框
         toggle(
             [(ngModel)]='config.store.terminal.warnOnMultilinePaste',
             (ngModelChange)='config.save()',
         )
 
 div.mt-4
-    h3 Sound
+    h3 声音
 
     .form-line
         .header
-            .title Terminal bell
+            .title 终端铃声
         .btn-group(
             [(ngModel)]='config.store.terminal.bell',
             (ngModelChange)='config.save()',
@@ -176,15 +176,15 @@ div.mt-4
                 | Audible
 
     .alert.alert-info.d-flex.align-items-center(*ngIf='config.store.terminal.bell != "audible" && (config.store.terminal.profile || "").startsWith("wsl")')
-        .mr-auto WSL terminal bell can only be muted via Volume Mixer
+        .mr-auto WSL 终端铃声只能通过音量混合器静音
         button.btn.btn-secondary((click)='openWSLVolumeMixer()') Show Mixer
 
 div.mt-4
-    h3 Startup
+    h3 启动
 
     .form-line(*ngIf='hostApp.platform !== Platform.Web')
         .header
-            .title Auto-open a terminal on app start
+            .title 启动时自动打开一个终端
 
         toggle(
             [(ngModel)]='config.store.terminal.autoOpen',
@@ -193,7 +193,7 @@ div.mt-4
 
     .form-line
         .header
-            .title Restore terminal tabs on app start
+            .title 启动时恢复终端标签页
 
         toggle(
             [(ngModel)]='config.store.recoverTabs',
@@ -205,8 +205,8 @@ div.mt-4(*ngIf='hostApp.platform === Platform.Windows')
 
     .form-line
         .header
-            .title Set Tabby as %COMSPEC%
-            .description Allows opening .bat files in tabs, but breaks some shells
+            .title 设置 Tabby 为 %COMSPEC%
+            .description 允许在标签页中打开 .bat 文件，但可能会打断一些 sheel
         toggle(
             [(ngModel)]='config.store.terminal.setComSpec',
             (ngModelChange)='config.save()',

@@ -42,7 +42,7 @@ export class ZModemDecorator extends TerminalDecorator {
                 }
             },
             on_retract: () => {
-                this.showMessage(terminal, 'transfer cancelled')
+                this.showMessage(terminal, '传输已取消')
             },
         })
         setTimeout(() => {
@@ -147,13 +147,13 @@ export class ZModemDecorator extends TerminalDecorator {
             // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (canceled) {
                 transfer.cancel()
-                this.showMessage(terminal, colors.bgRed.black(' Canceled ') + ' ' + details.name)
+                this.showMessage(terminal, colors.bgRed.black(' 已取消 ') + ' ' + details.name)
             } else {
                 transfer.close()
-                this.showMessage(terminal, colors.bgGreen.black(' Received ') + ' ' + details.name)
+                this.showMessage(terminal, colors.bgGreen.black(' 已接收 ') + ' ' + details.name)
             }
         } catch {
-            this.showMessage(terminal, colors.bgRed.black(' Error ') + ' ' + details.name)
+            this.showMessage(terminal, colors.bgRed.black(' 错误 ') + ' ' + details.name)
         }
 
         cancelSubscription.unsubscribe()
@@ -201,15 +201,15 @@ export class ZModemDecorator extends TerminalDecorator {
 
             // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
             if (canceled) {
-                this.showMessage(terminal, colors.bgRed.black(' Canceled ') + ' ' + offer.name)
+                this.showMessage(terminal, colors.bgRed.black(' 已取消 ') + ' ' + offer.name)
             } else {
-                this.showMessage(terminal, colors.bgGreen.black(' Sent ') + ' ' + offer.name)
+                this.showMessage(terminal, colors.bgGreen.black(' 已发送 ') + ' ' + offer.name)
             }
 
             cancelSubscription.unsubscribe()
         } else {
             transfer.cancel()
-            this.showMessage(terminal, colors.bgRed.black(' Rejected ') + ' ' + offer.name)
+            this.showMessage(terminal, colors.bgRed.black(' 已拒绝 ') + ' ' + offer.name)
             this.logger.warn('rejected by the other side')
         }
     }

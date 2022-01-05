@@ -1,8 +1,8 @@
-h3.mb-3 Window
+h3.mb-3 窗口
 
 .form-line
     .header
-        .title Theme
+        .title 主题
     select.form-control(
         [(ngModel)]='config.store.appearance.theme',
         (ngModelChange)='saveConfiguration()',
@@ -12,8 +12,8 @@ h3.mb-3 Window
 
 .form-line(*ngIf='hostApp.platform === Platform.Web')
     .header
-        .title Ask before closing the browser tab
-        .description Prevents accidental closing
+        .title 关闭标签页时询问
+        .description 防止意外关闭
     toggle(
         [(ngModel)]='config.store.web.preventAccidentalTabClosure',
         (ngModelChange)='saveConfiguration()',
@@ -22,9 +22,9 @@ h3.mb-3 Window
 
 .form-line(*ngIf='platform.supportsWindowControls')
     .header
-        .title(*ngIf='hostApp.platform !== Platform.macOS') Acrylic background
+        .title(*ngIf='hostApp.platform !== Platform.macOS') Acrylic 背景
         .title(*ngIf='hostApp.platform === Platform.macOS') Vibrancy
-        .description Gives the window a blurred transparent background
+        .description 给窗口一个模糊透明的背景
 
     toggle(
         [(ngModel)]='config.store.appearance.vibrancy',
@@ -33,7 +33,7 @@ h3.mb-3 Window
 
 .form-line(*ngIf='config.store.appearance.vibrancy && isFluentVibrancySupported')
     .header
-        .title Background type
+        .title 背景类型
     .btn-group(
         [(ngModel)]='config.store.appearance.vibrancyType',
         (ngModelChange)='saveConfiguration()',
@@ -56,7 +56,7 @@ h3.mb-3 Window
 
 .form-line(*ngIf='platform.supportsWindowControls')
     .header
-        .title Opacity
+        .title 不透明度
     input(
         type='range',
         [(ngModel)]='config.store.appearance.opacity',
@@ -68,8 +68,8 @@ h3.mb-3 Window
 
 .form-line(*ngIf='platform.supportsWindowControls')
     .header
-        .title Window frame
-        .description Whether a custom window or an OS native window should be used
+        .title Window 框架
+        .description 应该使用自定义窗口还是操作系统原生窗口
 
     .btn-group(
         [(ngModel)]='config.store.appearance.frame',
@@ -82,28 +82,28 @@ h3.mb-3 Window
                 ngbButton,
                 [value]='"native"'
             )
-            | Native
+            | 原生
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"thin"'
             )
-            | Thin
+            | 细的
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"full"'
             )
-            | Full
+            | 完全
 
-h3.mt-4 Docking
+h3.mt-4 停靠
 
 .form-line(*ngIf='docking')
     .header
-        .title Dock the terminal
-        .description Snaps the window to a side of the screen
+        .title 停靠终端
+        .description 将窗口贴到屏幕的某一边
 
     .btn-group(
         [(ngModel)]='config.store.appearance.dock',
@@ -116,40 +116,40 @@ h3.mt-4 Docking
                 ngbButton,
                 [value]='"off"'
             )
-            | Off
+            | 关闭
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"top"'
             )
-            | Top
+            | 顶部
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"left"'
             )
-            | Left
+            | 左边
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"right"'
             )
-            | Right
+            | 右边
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"bottom"'
             )
-            | Bottom
+            | 底部
 
 .ml-5.form-line(*ngIf='docking && config.store.appearance.dock != "off"')
     .header
-        .title Display on
-        .description Snaps the window to a side of the screen
+        .title 显示于
+        .description 作用范围
 
     div(
         [(ngModel)]='config.store.appearance.dockScreen',
@@ -162,7 +162,7 @@ h3.mt-4 Docking
                 ngbButton,
                 value='current'
             )
-            | Current
+            | 当前
         label.btn.btn-secondary(*ngFor='let screen of screens', ngbButtonLabel)
             input(
                 type='radio',
@@ -173,8 +173,8 @@ h3.mt-4 Docking
 
 .ml-5.form-line(*ngIf='docking && config.store.appearance.dock != "off"')
     .header
-        .title Dock always on top
-        .description Keep docked terminal always on top
+        .title 置顶窗口
+        .description 总是保持终端在最上
     toggle(
         [(ngModel)]='config.store.appearance.dockAlwaysOnTop',
         (ngModelChange)='saveConfiguration(); docking.dock()',
@@ -182,7 +182,7 @@ h3.mt-4 Docking
 
 .ml-5.form-line(*ngIf='docking && config.store.appearance.dock != "off"')
     .header
-        .title Docked terminal size
+        .title 停靠终端大小
     input(
         type='range',
         [(ngModel)]='config.store.appearance.dockFill',
@@ -194,7 +194,7 @@ h3.mt-4 Docking
 
 .ml-5.form-line(*ngIf='docking && config.store.appearance.dock != "off"')
     .header
-        .title Docked terminal space
+        .title 停靠终端空间
     input(
         type='range',
         [(ngModel)]='config.store.appearance.dockSpace',
@@ -206,18 +206,18 @@ h3.mt-4 Docking
 
 .ml-5.form-line(*ngIf='docking && config.store.appearance.dock != "off"')
     .header
-        .title Hide dock on blur
-        .description Hides the docked terminal when you click away.
+        .title 模糊时隐藏停靠点
+        .description 点击别处时隐藏停靠的终端
     toggle(
         [(ngModel)]='config.store.appearance.dockHideOnBlur',
         (ngModelChange)='saveConfiguration(); ',
     )
 
-h3.mt-4 Tabs
+h3.mt-4 标签页
 
 .form-line
     .header
-        .title Tabs location
+        .title 标签页位置
     .btn-group(
         [(ngModel)]='config.store.appearance.tabsLocation',
         (ngModelChange)='saveConfiguration()',
@@ -229,32 +229,32 @@ h3.mt-4 Tabs
                 ngbButton,
                 [value]='"top"'
             )
-            | Top
+            | 顶部
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"bottom"'
             )
-            | Bottom
+            | 底部
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"left"'
             )
-            | Left
+            | 左边
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='"right"'
             )
-            | Right
+            | 右边
 
 .form-line
     .header
-        .title Tabs width
+        .title 标签页宽度
     .btn-group(
         [(ngModel)]='config.store.appearance.flexTabs',
         (ngModelChange)='saveConfiguration()',
@@ -266,18 +266,18 @@ h3.mt-4 Tabs
                 ngbButton,
                 [value]='true'
             )
-            | Dynamic
+            | 动态
         label.btn.btn-secondary(ngbButtonLabel)
             input(
                 type='radio',
                 ngbButton,
                 [value]='false'
             )
-            | Fixed
+            | 固定
 
 .form-line
     .header
-        .title Hide tab index
+        .title 隐藏标签页序号
 
     toggle(
         [(ngModel)]='config.store.terminal.hideTabIndex',
@@ -286,7 +286,7 @@ h3.mt-4 Tabs
 
 .form-line
     .header
-        .title Hide tab close button
+        .title 隐藏标签页关闭按钮
 
     toggle(
         [(ngModel)]='config.store.terminal.hideCloseButton',
@@ -297,8 +297,8 @@ h3.mt-4 Hacks
 
 .form-line
     .header
-        .title Disable GPU acceleration
-        .description Tick this if you're experiencing aliasing, ghosting or other visual issues
+        .title 关闭 GPU 加速
+        .description 如果您遇到重叠、重影或其他视觉问题就勾选
 
     toggle(
         [(ngModel)]='config.store.hacks.disableGPU',

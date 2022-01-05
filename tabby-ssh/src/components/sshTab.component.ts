@@ -45,7 +45,7 @@ export class SSHTabComponent extends BaseTerminalTabComponent {
 
     ngOnInit (): void {
         if (!this.profile) {
-            throw new Error('Profile not set')
+            throw new Error('未设置配置文件')
         }
 
         this.logger = this.log.create('terminalTab')
@@ -138,9 +138,9 @@ export class SSHTabComponent extends BaseTerminalTabComponent {
         })
 
         if (!session.open) {
-            this.write('\r\n' + colors.black.bgWhite(' SSH ') + ` Connecting to ${session.profile.options.host}\r\n`)
+            this.write('\r\n' + colors.black.bgWhite(' SSH ') + ` 连接到 ${session.profile.options.host}\r\n`)
 
-            this.startSpinner('Connecting')
+            this.startSpinner('连接中')
 
             try {
                 await session.start()
@@ -169,10 +169,10 @@ export class SSHTabComponent extends BaseTerminalTabComponent {
                 this.destroy()
             } else if (this.frontend) {
                 // Session was closed abruptly
-                this.write('\r\n' + colors.black.bgWhite(' SSH ') + ` ${this.sshSession?.profile.options.host}: session closed\r\n`)
+                this.write('\r\n' + colors.black.bgWhite(' SSH ') + ` ${this.sshSession?.profile.options.host}: 会话关闭\r\n`)
                 if (!this.reconnectOffered) {
                     this.reconnectOffered = true
-                    this.write('Press any key to reconnect\r\n')
+                    this.write('按任意键重新连接\r\n')
                     this.input$.pipe(first()).subscribe(() => {
                         if (!this.session?.open && this.reconnectOffered) {
                             this.reconnect()
@@ -187,7 +187,7 @@ export class SSHTabComponent extends BaseTerminalTabComponent {
     async initializeSession (): Promise<void> {
         this.reconnectOffered = false
         if (!this.profile) {
-            this.logger.error('No SSH connection info supplied')
+            this.logger.error('未提供 SSH 连接信息')
             return
         }
 
@@ -239,8 +239,8 @@ export class SSHTabComponent extends BaseTerminalTabComponent {
         return (await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: `Disconnect from ${this.profile?.options.host}?`,
-                buttons: ['Disconnect', 'Do not close'],
+                message: `确定与 ${this.profile?.options.host} 断开连接？`,
+                buttons: ['确定', '取消'],
                 defaultId: 0,
                 cancelId: 1,
             }

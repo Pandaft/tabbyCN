@@ -393,12 +393,12 @@ export class SSHSession {
             }
             if (methodsLeft && !methodsLeft.includes(method.type) && method.type !== 'agent') {
                 // Agent can still be used even if not in methodsLeft
-                this.logger.info('Server does not support auth method', method.type)
+                this.logger.info('服务器不支持认证方法', method.type)
                 continue
             }
             if (method.type === 'password') {
                 if (this.profile.options.password) {
-                    this.emitServiceMessage('Using preset password')
+                    this.emitServiceMessage('使用预设密码')
                     return {
                         type: 'password',
                         username: this.authUsername,
@@ -409,7 +409,7 @@ export class SSHSession {
                 if (!this.keychainPasswordUsed && this.profile.options.user) {
                     const password = await this.passwordStorage.loadPassword(this.profile)
                     if (password) {
-                        this.emitServiceMessage('Trying saved password')
+                        this.emitServiceMessage('尝试保存密码')
                         this.keychainPasswordUsed = true
                         return {
                             type: 'password',

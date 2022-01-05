@@ -79,7 +79,7 @@ export class TelnetSession extends BaseSession {
 
     async start (): Promise<void> {
         this.socket = new Socket()
-        this.emitServiceMessage(`Connecting to ${this.profile.options.host}`)
+        this.emitServiceMessage(`连接到 ${this.profile.options.host}`)
 
         return new Promise((resolve, reject) => {
             this.socket.on('error', err => {
@@ -88,12 +88,12 @@ export class TelnetSession extends BaseSession {
                 this.destroy()
             })
             this.socket.on('close', () => {
-                this.emitServiceMessage('Connection closed')
+                this.emitServiceMessage('连接已关闭')
                 this.destroy()
             })
             this.socket.on('data', data => this.onData(data))
             this.socket.connect(this.profile.options.port ?? 23, this.profile.options.host, () => {
-                this.emitServiceMessage('Connected')
+                this.emitServiceMessage('已连接')
                 this.open = true
                 setTimeout(() => this.streamProcessor.start())
                 this.loginScriptProcessor?.executeUnconditionalScripts()

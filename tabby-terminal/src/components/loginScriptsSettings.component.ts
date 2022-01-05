@@ -25,9 +25,9 @@ export class LoginScriptsSettingsComponent {
         if ((await this.platform.showMessageBox(
             {
                 type: 'warning',
-                message: 'Delete this script?',
+                message: '删除此脚本',
                 detail: script.expect,
-                buttons: ['Delete', 'Keep'],
+                buttons: ['确定', '取消'],
                 defaultId: 0,
                 cancelId: 1,
             }
