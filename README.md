@@ -114,7 +114,7 @@ Please go to [Releases](https://github.com/Aixzk/tabbyCN/releases) or [Actions](
 * 进程完成通知
 * 括号、多行粘贴警告
 * 连体字
-* 自定义 shell 配置文件
+* 自定义 shell 配置
 * 可选的 RMB 粘贴和选择复制（PuTTY 风格）
 
 <a name="ssh"></a>
@@ -154,7 +154,7 @@ Please go to [Releases](https://github.com/Aixzk/tabbyCN/releases) or [Actions](
 * [save-output](https://github.com/Eugeny/tabby-save-output) - 记录终端输出到一个文件
 * [sync-config](https://github.com/starxg/terminus-sync-config) - 同步配置到 Gist 或 Gitee
 * [clippy](https://github.com/Eugeny/tabby-clippy) - 一个会一直打扰你的示例插件
-* [workspace-manager](https://github.com/composer404/tabby-workspace-manager) - 允许根据指定的配置文件创建自定义的工作区
+* [workspace-manager](https://github.com/composer404/tabby-workspace-manager) - 允许根据指定的配置创建自定义的工作区
 * [search-in-browser](https://github.com/composer404/tabby-search-in-browser) - 打开系统默认浏览器搜索选中的文本
 
 <a name="themes"></a>

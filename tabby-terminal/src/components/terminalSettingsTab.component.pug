@@ -206,7 +206,7 @@ div.mt-4(*ngIf='hostApp.platform === Platform.Windows')
     .form-line
         .header
             .title 设置 Tabby 为 %COMSPEC%
-            .description 允许在标签页中打开 .bat 文件，但可能会打断一些 sheel
+            .description 允许在标签页中打开 .bat 文件，但可能会打断一些 shell
         toggle(
             [(ngModel)]='config.store.terminal.setComSpec',
             (ngModelChange)='config.save()',

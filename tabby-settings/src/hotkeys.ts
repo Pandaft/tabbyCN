@@ -7,7 +7,7 @@ export class SettingsHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'settings',
-            name: 'Open Settings',
+            name: '打开设置',
         },
     ]
 

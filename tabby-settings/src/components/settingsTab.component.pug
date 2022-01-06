@@ -122,12 +122,12 @@
         li(ngbNavItem='config-file')
             a(ngbNavLink)
                 i.fas.fa-fw.fa-code.mr-2
-                | 配置文件
+                | 配置
             ng-template.test(ngbNavContent)
                 .d-flex.flex-column.w-100.h-100
                     .h-100.d-flex
                         .w-100.d-flex.flex-column
-                            h3 配置文件
+                            h3 配置
                             textarea.form-control.h-100(
                                 [(ngModel)]='configFile'
                             )
@@ -152,7 +152,7 @@
                             (click)='showConfigFile()'
                         )
                             i.fas.fa-external-link-square-alt.mr-2
-                            | 显示配置文件
+                            | 显示配置
 
     div([ngbNavOutlet]='nav')
 

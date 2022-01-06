@@ -45,7 +45,7 @@ export class SSHTabComponent extends BaseTerminalTabComponent {
 
     ngOnInit (): void {
         if (!this.profile) {
-            throw new Error('未设置配置文件')
+            throw new Error('未设置配置')
         }
 
         this.logger = this.log.create('terminalTab')

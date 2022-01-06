@@ -15,5 +15,5 @@ button.btn.btn-sm.btn-link.toolbar-pin-button(
 )
     i.fas.fa-thumbtack(*ngIf='revealToolbar || pinToolbar')
     i.fas.fa-wrench.mr-3(*ngIf='!revealToolbar && !pinToolbar')
-    span(*ngIf='pinToolbar') 取消置顶
-    span(*ngIf='!pinToolbar && revealToolbar') 置顶
+    span(*ngIf='pinToolbar') 取消固定
+    span(*ngIf='!pinToolbar && revealToolbar') 固定

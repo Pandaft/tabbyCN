@@ -132,10 +132,10 @@ export class CommonOptionsContextMenu extends TabContextMenuItemProvider {
 
             if (tab instanceof SplitTabComponent && tab.getAllTabs().length > 1) {
                 items.push({
-                    label: '保存布局为配置文件',
+                    label: '保存布局为配置',
                     click: async () => {
                         const modal = this.ngbModal.open(PromptModalComponent)
-                        modal.componentInstance.prompt = '配置文件名'
+                        modal.componentInstance.prompt = '配置名'
                         const name = (await modal.result)?.value
                         if (!name) {
                             return
@@ -270,7 +270,7 @@ export class ProfilesContextMenu extends TabContextMenuItemProvider {
         if (!tabHeader && tab.parent instanceof SplitTabComponent && tab.parent.getAllTabs().length > 1) {
             return [
                 {
-                    label: '切换配置文件',
+                    label: '切换配置',
                     click: () => this.switchTabProfile(tab),
                 },
             ]

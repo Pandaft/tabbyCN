@@ -58,7 +58,7 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
             const profiles = [...this.templateProfiles, ...this.builtinProfiles, ...this.profiles]
             profiles.sort((a, b) => (a.weight ?? 0) - (b.weight ?? 0))
             base = await this.selector.show(
-                '选择要用作模板的基本配置文件',
+                '选择要用作模板的基本配置',
                 profiles.map(p => ({
                     icon: p.icon,
                     description: this.profilesService.getDescription(p) ?? undefined,
@@ -98,7 +98,7 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
         )
         const provider = this.profilesService.providerForProfile(profile)
         if (!provider) {
-            throw new Error('没有提供程序，无法编辑配置文件')
+            throw new Error('没有提供程序，无法编辑配置')
         }
         modal.componentInstance.profile = deepClone(profile)
         modal.componentInstance.profileProvider = provider
@@ -156,7 +156,7 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
         this.profileGroups.sort((a, b) => a.name?.localeCompare(b.name ?? '') ?? -1)
 
         this.profileGroups.push({
-            name: 'Built-in',
+            name: '内置',
             profiles: this.builtinProfiles,
             editable: false,
             collapsed: false,
@@ -190,8 +190,8 @@ export class ProfilesSettingsTabComponent extends BaseComponent {
             if ((await this.platform.showMessageBox(
                 {
                     type: 'warning',
-                    message: `删除分组中的所有配置文件？`,
-                    buttons: ['移动至 "Ungrouped" 分组', '删除'],
+                    message: `删除分组中的所有配置？`,
+                    buttons: ['移动至 "未分组" 分组', '删除'],
                     defaultId: 0,
                     cancelId: 0,
                 }

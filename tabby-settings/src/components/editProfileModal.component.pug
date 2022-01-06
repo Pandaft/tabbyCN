@@ -2,7 +2,7 @@
     h3.m-0 {{profile.name}}
 
 .modal-header(*ngIf='defaultsMode')
-    h3.m-0 默认为 {{profileProvider.name}}
+    h3.m-0 默认 {{profileProvider.name}} 设置
 
 .modal-body
     .row
@@ -20,7 +20,7 @@
                 input.form-control(
                     type='text',
                     alwaysVisibleTypeahead,
-                    placeholder='Ungrouped',
+                    placeholder='未分组',
                     [(ngModel)]='profile.group',
                     [ngbTypeahead]='groupTypeahead',
                 )

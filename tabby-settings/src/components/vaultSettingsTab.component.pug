@@ -1,7 +1,7 @@
 .text-center(*ngIf='!vault.isEnabled()')
     i.fas.fa-key.fa-3x.m-3
     h3.m-3 未配置保管库
-    .m-3 保管库是一个始终加密的容器，用于保管 secrets 例如 SSH 和私钥等.
+    .m-3 保管库是一个始终加密 SSH 私钥等 secrets 的保管容器。
     button.btn.btn-primary.m-2((click)='enableVault()') 设置主密码
 
 
@@ -60,7 +60,7 @@ div(*ngIf='vault.isEnabled()')
         h3.mt-5 选项
         .form-line
             .header
-                .title 加密配置文件
+                .title 加密配置
                 .description 将 Tabby 的所有配置保存到保管库
             toggle(
                 [ngModel]='config.store.encrypted',

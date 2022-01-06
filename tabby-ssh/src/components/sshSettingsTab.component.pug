@@ -14,7 +14,7 @@ h3 SSH
         .description 当检测到 WinSCP 时您可以从菜单中启动一个 SCP 会话
     input.form-control(
         type='text',
-        placeholder='Auto-detect',
+        placeholder='自动检测',
         [(ngModel)]='config.store.ssh.winSCPPath',
         (ngModelChange)='config.save()',
     )

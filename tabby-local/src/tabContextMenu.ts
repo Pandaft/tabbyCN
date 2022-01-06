@@ -23,10 +23,10 @@ export class SaveAsProfileContextMenu extends TabContextMenuItemProvider {
         }
         const items: MenuItemOptions[] = [
             {
-                label: '另存为配置文件',
+                label: '另存为配置',
                 click: async () => {
                     const modal = this.ngbModal.open(PromptModalComponent)
-                    modal.componentInstance.prompt = '新配置文件名'
+                    modal.componentInstance.prompt = '新配置名'
                     const name = (await modal.result)?.value
                     if (!name) {
                         return
@@ -82,7 +82,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
                 },
             },
             {
-                label: '打开配置文件',
+                label: '打开配置',
                 submenu: profiles.map(profile => ({
                     label: profile.name,
                     click: async () => {
@@ -98,7 +98,7 @@ export class NewTabContextMenu extends TabContextMenuItemProvider {
 
         if (this.uac.isAvailable) {
             items.push({
-                label: '打开配置文件（管理员权限）',
+                label: '打开配置（管理员权限）',
                 submenu: profiles.map(profile => ({
                     label: profile.name,
                     click: () => {

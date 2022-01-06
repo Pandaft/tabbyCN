@@ -19,7 +19,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
         return [
             {
                 icon: require('./icons/plus.svg'),
-                title: 'New demo terminal',
+                title: '新 demo 终端',
                 click: () => {
                     this.app.openNewTab({ type: DemoTerminalTabComponent })
                 },

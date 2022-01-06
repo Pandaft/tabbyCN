@@ -1,12 +1,12 @@
-h3.mb-3 配置文件
+h3.mb-3 配置
 
 ul.nav-tabs(ngbNav, #nav='ngbNav')
     li(ngbNavItem)
-        a(ngbNavLink) 配置文件
+        a(ngbNavLink) 配置
         ng-template(ngbNavContent)
             .form-line
                 .header
-                    .title 新标签页默认配置文件
+                    .title 新标签页默认配置
 
                 select.form-control(
                     [(ngModel)]='config.store.terminal.profile',
@@ -26,11 +26,11 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
                     .input-group-prepend
                         .input-group-text
                             i.fas.fa-fw.fa-search
-                    input.form-control(type='search', placeholder='Filter', [(ngModel)]='filter')
+                    input.form-control(type='search', placeholder='搜索', [(ngModel)]='filter')
 
                 button.btn.btn-primary.flex-shrink-0.ml-3((click)='newProfile()')
                     i.fas.fa-fw.fa-plus
-                    | 新建配置文件
+                    | 新建配置
 
             .list-group.mt-3.mb-3
                 ng-container(*ngFor='let group of profileGroups')
@@ -40,7 +40,7 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
                         )
                             .fa.fa-fw.fa-chevron-right(*ngIf='group.collapsed')
                             .fa.fa-fw.fa-chevron-down(*ngIf='!group.collapsed')
-                            span.ml-3.mr-auto {{group.name || "Ungrouped"}}
+                            span.ml-3.mr-auto {{group.name || "未分组"}}
                             button.btn.btn-sm.btn-link.hover-reveal.ml-2(
                                 *ngIf='group.editable && group.name',
                                 (click)='$event.stopPropagation(); editGroup(group)'
@@ -92,7 +92,7 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
         ng-template(ngbNavContent)
             .form-line(*ngIf='config.store.profiles.length > 0')
                 .header
-                    .title 在选择器中显示最近的配置文件数
+                    .title 在选择器中显示最近的配置数
                     .description 设置 0 为不显示
 
                 input.form-control(
@@ -105,8 +105,8 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
             .form-line(*ngIf='config.store.profiles.length > 0')
                 .header
-                    .title 在选择器中显示内置配置文件
-                    .description 如果禁用，选择器中仅显示自定义配置文件
+                    .title 在选择器中显示内置配置
+                    .description 如果禁用，选择器中仅显示自定义配置
 
                 toggle(
                     [(ngModel)]='config.store.terminal.showBuiltinProfiles',
@@ -115,8 +115,8 @@ ul.nav-tabs(ngbNav, #nav='ngbNav')
 
             .form-line
                 .header
-                    .title 默认配置文件设置
-                    .description 将应用于给定类型的所有配置文件
+                    .title 默认配置设置
+                    .description 将应用于给定类型的所有配置
 
             .list-group.mt-3.mb-3
                 a.list-group-item.list-group-item-action(

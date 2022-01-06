@@ -9,7 +9,7 @@ export class AppHotkeyProvider extends HotkeyProvider {
     hotkeys: HotkeyDescription[] = [
         {
             id: 'profile-selector',
-            name: '显示配置文件选择器',
+            name: '显示配置选择器',
         },
         {
             id: 'toggle-fullscreen',
@@ -181,7 +181,7 @@ export class AppHotkeyProvider extends HotkeyProvider {
         },
         {
             id: 'switch-profile',
-            name: '在当前窗格切换配置文件',
+            name: '在当前窗格切换配置',
         },
         {
             id: 'close-pane',
@@ -203,7 +203,7 @@ export class AppHotkeyProvider extends HotkeyProvider {
             })),
             ...this.profilesService.getProviders().map(provider => ({
                 id: `profile-selectors.${provider.id}`,
-                name: `显示 ${provider.name} 配置文件选择器`,
+                name: `显示 ${provider.name} 配置选择器`,
             })),
         ]
     }
